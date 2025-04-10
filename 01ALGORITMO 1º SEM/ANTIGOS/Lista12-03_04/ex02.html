@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img style='height: 75px;' src="https://www.sptech.school/assets/images/logos/sptech_logo_1.png">
+            <h1 class="titulo">Lista 12 - 2 - Algoritmos</h1>
+        </div>
+        <div class='header-right'>
+            <h3>desenvolvido por:</h3>
+            <div class="criador">
+                <h2>César Augusto</h2>
+            </div>
+        </div>
+    </header>
+
+    <main class="exercicio">
+        <div class="ipts">
+           <label>Qual time você vai torcer a partir de agora?</label>
+           <br>
+           <button class = 'comecar' onclick="comecar()">SORTEAR TIME</button>
+
+
+
+        </div>
+        <div class="resultado" id="resultado"></div>
+    </main>
+</body>
+<script>
+    function comecar(){
+        var nTime = parseInt(Math.random() * 4);
+        console.log(nTime)
+        var urlTime =''
+
+        var time1 = 'https://imagepng.org/wp-content/uploads/2018/03/escudo-palmeiras.png'
+        var time2 = 'https://e7.pngegg.com/pngimages/90/150/png-clipart-sport-club-corinthians-paulista-corinthians-arena-esporte-clube-corinthians-sao-paulo-fc-clube-de-regatas-do-flamengo-corinthians.png'
+        var time3 = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwfw5ierrL0oIxJOHCvF07IoUJjX9kEAxPjA&s'
+        var time4 = 'https://upload.wikimedia.org/wikipedia/commons/1/15/Santos_Logo.png'
+
+        nTime < 1 ? urlTime = time1 : nTime < 2 ? urlTime = time2 : nTime < 3 ? urlTime = time3 : nTime < 4 ? urlTime = time4 : 'eita';
+
+        resultado.innerHTML = `<img style='width:150px; height:150px' src=${urlTime}>`
+       
+
+        
+
+
+    }
+
+</script>
+
+
+
+
+
+<style>
+    * {
+        margin: 0px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+    }
+
+    :root {
+        --tamanho-header: 90px;
+        --tamanho-footer: 90px;
+        --tamanho-main: calc(100vh - var(--tamanho-header) - 2px);
+    }
+
+    html, body {
+        height: 100%;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+      
+    }
+
+    /* INICIO HEADER */
+    header {
+        height: var(--tamanho-header);
+        background: #1B3A57;
+padding: 15px 0;
+text-align: center;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header-left {
+        color: #FFFFFF;
+        display: flex;
+        align-items: center;
+    }
+
+    .header-right {
+        margin-right: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .criador {
+        display: flex;
+        align-items: center;
+    }
+    /* FIM DA HEADER */
+
+    .exercicio {
+        
+        
+        background: linear-gradient(to bottom, #1B3A57, #5DA8C1);
+        min-height: var(--tamanho-main); 
+    }
+
+    .exercicio .ipts {
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 30px;
+        padding-right: 40px;
+        padding-bottom: 30px;
+        padding-left: 40px;
+        
+      
+        
+padding: 20px;
+border-radius: 10px;
+    }
+
+    .exercicio .resultado {
+        background: rgba(44, 62, 80, 0.9);
+color: white;
+padding: 15px;
+border-radius: 10px;
+text-align: center;
+width: 320px;
+margin: 30px auto;
+box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+font-weight: bold;
+    }
+
+    /* Estilizando o input */
+input {
+width: 800px;
+padding: 6px;
+font-size: 18px;
+text-align: center;
+border: 2px solid #3498db;
+border-radius: 8px;
+outline: none;
+background-color: #1f2a44;
+color:white;
+transition: 0.3s;
+
+}
+label {
+color: rgba(255, 255, 255, 0.9);
+ font-size: large;
+ font-weight: 800
+}
+
+input:focus {
+border-color: #2980b9;
+box-shadow: 0 0 5px rgba(52, 152, 219, 0.8);
+}
+
+/* Estilizando o botão */
+button {
+background-color: #3498db;
+color: white;
+font-size: 16px;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+transition: 0.3s;
+}
+
+button:hover {
+background-color: #1f6692;
+transform: scale(1.08);
+box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.comecar{
+font-weight: 800; 
+background-color: rgb(66, 98, 136);
+}
+
+</style>
+
+</html>

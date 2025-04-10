@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img style='height: 75px;' src="https://www.sptech.school/assets/images/logos/sptech_logo_1.png">
+            <h1 class="titulo">Lista 12 - 4 - Algoritmos</h1>
+        </div>
+        <div class='header-right'>
+            <h3>desenvolvido por:</h3>
+            <div class="criador">
+               <h2>César Augusto</h2>
+            </div>
+        </div>
+    </header>
+
+    <main class="exercicio">
+        <div class="ipts">
+           <label>Vamos dar uma nota</label>
+           
+         
+           <br>
+           <button class = 'comecar' onclick="comecar()">Sortear Nota para aluno</button>
+
+
+
+        </div>
+        <div class="resultado" id="resultado"></div>
+    </main>
+</body>
+<script>
+    function comecar(){
+        var numero = (Math.random() * 10);
+
+        resultado.innerHTML = `<div style='display:flex; justify-content:center; aling;height: 100px; width:100px; background-color:black; color:white; align-items:center'><h1>${numero.toFixed(1)}</h1></div>`
+
+
+    }
+
+</script>
+
+
+
+
+
+<style>
+        * {
+            margin: 0px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+        }
+
+        :root {
+            --tamanho-header: 90px;
+            --tamanho-footer: 90px;
+            --tamanho-main: calc(100vh - var(--tamanho-header) - 2px);
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+          
+        }
+
+        /* INICIO HEADER */
+        header {
+            height: var(--tamanho-header);
+            background: #1B3A57;
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left {
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-right {
+            margin-right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .criador {
+            display: flex;
+            align-items: center;
+        }
+        /* FIM DA HEADER */
+
+        .exercicio {
+            
+            
+            background: linear-gradient(to bottom, #1B3A57, #5DA8C1);
+            min-height: var(--tamanho-main); 
+        }
+
+        .exercicio .ipts {
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 30px;
+            padding-right: 40px;
+            padding-bottom: 30px;
+            padding-left: 40px;
+            
+          
+            
+    padding: 20px;
+    border-radius: 10px;
+        }
+
+        .exercicio .resultado {
+            background: rgba(44, 62, 80, 0.9);
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    width: 320px;
+    margin: 30px auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+        }
+
+        /* Estilizando o input */
+input {
+    width: 120px;
+    padding: 6px;
+    font-size: 18px;
+    text-align: center;
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    outline: none;
+    background-color: #1f2a44;
+    color:white;
+    transition: 0.3s;
+    
+}
+label {
+    color: rgba(255, 255, 255, 0.9);
+     font-size: large;
+     font-weight: 800
+}
+
+input:focus {
+    border-color: #2980b9;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.8);
+}
+
+/* Estilizando o botão */
+button {
+    background-color: #3498db;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #1f6692;
+    transform: scale(1.08);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.comecar{
+    font-weight: 800; 
+    background-color: rgb(66, 98, 136);
+}
+
+    </style>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idade para a Festa</title>
+</head>
+<body>
+
+<!--
+     a) Pergunte ao usuário sua idade.  
+
+b) Ao clicar num botão "Ir pra festa":  
+
+   b1) Caso a idade seja menor que 18, deve aparecer um alert com a frase "Pedir permissão pro responsável" 
+
+   b2) Sempre vai aparecer um alert com a palavra "#partiuFesta" ao final  
+
+OBS: caso tenha 18 anos ou mais, deve somente a segunda mensagem. 
+-->
+
+<input type="text" id="ipt_idade">
+<button id ="bot" onclick="festa()">Ir pra festa</button>
+
+
+<div id="tela"></div>
+
+
+    
+</body>
+
+<script>
+   
+    function festa(){
+        var idade = Number(ipt_idade.value);
+        if (idade < 18){
+            alert("Pedir permissão para o responsável");
+        }
+
+        alert("#PartiuFesta")
+
+
+    }
+
+</script>
+</html>

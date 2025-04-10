@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. Consumo Anual de Refrigerante</title>
+</head>
+<body>
+
+    <!-- 2. Consumo Anual de Refrigerante
+Joka bebe com certa frequência e quer saber quanto consome de refrigerante em 1 ano. Para ajudá-lo a saber essa informação, crie um programa o qual:   
+
+a) Pergunte quantas latinhas de refrigerante toma por dia  
+
+b) Ao clicar num botão "Quantos refris?", calcule a quantidade de refrigerante que ele consome em 1 ano, considerando que 1 ano possui 365 dias  
+
+c) Exiba na página a quantidade de latinhas que ele consome por ano  
+
+d) Somente caso a quantidade seja a partir de 500, exiba também a frase: "Cuidado com a diabetes!"  
+-->
+
+<h1>2. Consumo Anual de Refrigerante</h1>
+
+<label for="qtd_lata">Quantas latinhas de refrigerante por dia?</label>
+<input type="number" id="qtd_lata">
+<button onclick="calculo()">Quantos refris?</button>
+
+<div id="tela">
+    
+</div>
+<h3 id="diabetes"></h3>
+
+    
+</body>
+
+<script>
+   
+    function calculo(){
+        var refris = qtd_lata.value * 365 
+        
+        tela.innerHTML= `<h3>Quantidade de latinhas consumidas em um ano: ${refris}</h3>`
+        if (refris >= 500){
+            diabetes.innerHTML=`Cuidado com a diabetes!`
+        
+        } else diabetes.innerHTML=``
+
+
+        
+        
+
+
+    }
+</script>
+</html>

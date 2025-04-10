@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex04.PesoInfantil/Cesar</title>
+</head>
+
+<body>
+    <!-- 4. Avaliação de Peso Infantil: Está Dentro da Faixa Saudável?
+    Uma nutróloga deseja um programa que ajude-a no processo de avaliação do peso de crianças de 5 anos.
+    
+    Seu programa, ao ler o peso da criança, deve exibir uma dessas frases:
+    
+    Abaixo do peso (se peso até 13.5kg)
+    
+    Acima do peso (se peso maior que 21.2kg)
+    
+    Peso na média (se peso maior que 13.5kg até 21.2kg)
+    
+    Peso perfeito (se o peso for exatamente 18.3kg) 
+    -->
+    <label for="ipt_peso">Informe o peso da criança (kg):</label>
+    <input id="ipt_peso" type="number" step="0.1">
+    <button onclick="avaliarPeso()">Avaliar</button>
+    <div id="resultado"> 
+        <h3 id="h1Base"></h3>
+        <p id="classe"></p>
+    </div>
+</body>
+<script>
+    function avaliarPeso() {
+        var peso = Number(ipt_peso.value);
+        h1Base.innerHTML = "Resultado:";
+        var texto = "";
+        
+        if (peso === 18.3) {
+            texto = "Peso Perfeito";
+        } else if (peso <= 13.5) {
+            texto = "Abaixo do Peso";
+        } else if (peso > 21.2) {
+            texto = "Acima do Peso";
+        } else {
+            texto = "Peso na Média";
+        }
+        
+        classe.innerHTML = texto;
+    }
+</script>
+</html>

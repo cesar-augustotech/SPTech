@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Adicione um contador antes de cada frase ao exibir 7 vezes a mensagem</h1>
+    <button onclick="dizer()">Diga algo sobre a matéria de Algoritmos</button>
+    <div id="resultado"></div>
+</body>
+
+
+<script>
+function dizer(){
+    /*var i = 0;
+    while (i <= 7){
+        resultado.innerHTML += `${i+1}. a sua escolha<br>`
+        i ++
+    }*/
+   for (var i = 0; i<=7; i++){
+    resultado.innerHTML += `${i+1}. a sua escolha<br>`
+   }
+}
+</script>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>  </title>
+</head>
+<body>
+
+    <!--11. Crie um programa o qual:
+    
+    a) Solicite a quantidade de filhos que o usuário tem  
+
+b) Tenha um botão "Analisar família". Ao clicar nele...  
+
+c) Caso tenha 1 ou mais filhos, exiba na tela, abaixo do botão, a frase "Não tem TV" 
+
+d) Caso tenha 2 ou mais filhos, exiba na tela, abaixo da frase em c), a frase "Não tem internet" 
+
+e) Caso tenha 3 ou mais filhos, exiba na tela, abaixo da frase em d), a frase "Não tem video game" 
+
+f) Caso tenha 4 ou mais filhos, exiba na tela, abaixo da frase em e), a frase "Não tem Netflix" 
+
+    OBS: Ou seja, caso o usuário informe que tenha, por exemplo,  4 ou mais filhos, devem aparecer as seguintes frases:  
+
+          Não tem TV  
+
+          Não tem internet  
+
+          Não tem video game  
+
+          Não tem Netflix  
+
+    Se tiver 2 filhos, deve exibir apenas "Não tem TV" e "Não tem internet", de acordo com as validações descritas acima -->
+   
+   
+    <input type="text" id="input" placeholder="Quantidade de filhos que o usuário tem">
+    <button onclick="analisar()">Analisar familia</button>
+    <p id="resultado"></p>
+
+
+    
+</body>
+<script>
+    function analisar(){
+        var input = document.getElementById("input").value;
+        var resultado = document.getElementById("resultado");
+        resultado.innerHTML = "";
+        if(input >= 4){
+            resultado.innerHTML += "Não tem TV <br>";
+            resultado.innerHTML += "Não tem internet <br>";
+            resultado.innerHTML += "Não tem video game <br>";
+            resultado.innerHTML += "Não tem Netflix <br>";
+        }else if(input >= 3){
+            resultado.innerHTML += "Não tem TV <br>";
+            resultado.innerHTML += "Não tem internet <br>";
+            resultado.innerHTML += "Não tem video game <br>";
+        }else if(input >= 2){
+            resultado.innerHTML += "Não tem TV <br>";
+            resultado.innerHTML += "Não tem internet <br>";
+        }else if(input >= 1){
+            resultado.innerHTML += "Não tem TV <br>";
+        }
+        
+        
+    }
+    
+</script>
+</html>

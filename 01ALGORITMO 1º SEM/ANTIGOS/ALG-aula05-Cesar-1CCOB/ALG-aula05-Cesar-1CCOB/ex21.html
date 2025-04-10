@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21.César</title>
+</head>
+<body>
+    <h1>Economias</h1>
+    <label for="ipt_eco">Qual a sua meta</label>
+    <input id="ipt_eco" type="number">
+    <label for="ipt_saldo">Quanto você já guardou</label>
+    <input id="ipt_saldo" type="number">
+
+    <button onclick="calculo()">Analisar economia</button>
+    <div id="tela"></div>
+</body>
+<script>
+    
+    function calculo(){
+        var meta = Number(ipt_eco.value);
+        var saldo = Number(ipt_saldo.value);
+        console.log(saldo)
+        console.log(meta);
+        var ultra = saldo - meta;
+        if (saldo >= meta){
+            tela.innerHTML=`<h3>Parabéns, meta alcançada</h3>`
+            if (saldo > meta){
+                tela.innerHTML +=`<h4>Meta ultrapassada em ${ultra}R$}`
+
+            }
+        } else {
+            tela.innerHTML = `Força! Ainda em busca da meta! Falta ${ultra}R$`
+        }
+
+    }
+</script>
+</html>
+
+
+
+-- Adicionar o campo protagonista do tipo varchar(50) na tabela;
+-- Atualizar o campo protagonista de todas os filmes inseridos;
+-- Modificar o campo diretor do tamanho 40 para o tamanho 150;
+-- Atualizar o diretor do filme com id=5;
+-- Atualizar o diretor dos filmes com id=2 e com o id=7;
+-- Atualizar o título do filme com o id=6;
+-- Excluir o filme com o id=3;
+-- Exibir os filmes em que o gênero é diferente de drama;
+-- Exibir os dados dos filmes que o gênero é igual ‘suspense’;
+-- Descrever os campos da tabela mostrando a atualização do campo protagonista e
+-- diretor;
+-- Limpar os dados da tabela;

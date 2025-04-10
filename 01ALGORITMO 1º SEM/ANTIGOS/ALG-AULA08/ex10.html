@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recarga Fidelidade Metrô</title>
+</head>
+<body>
+    <h2>Recarga Fidelidade Metrô</h2>
+    <label>Quantidade de passagens:</label>
+    <input type="number" id="quantidade" placeholder="Digite a quantidade">
+    <button onclick="calcularTotal()">Comprar</button>
+    <div id="resultado"></div>
+
+    <script>
+        function calcularTotal() {
+            var qtd = Number(quantidade.value);
+            var precoUnitario = 4.40;
+            var desconto = 0;
+
+            if (isNaN(qtd)) {
+                alert("Quantidade inválida para o Fidelidade!");
+                return;
+            }
+            
+            if (qtd < 8) {
+                alert("Quantidade inválida para o Fidelidade!");
+                return;
+            }
+            
+            if (qtd > 50) {
+                alert("Quantidade inválida para o Fidelidade!");
+                return;
+            }
+
+            if (qtd >= 8 && qtd <= 19) {
+                desconto = 0.03;
+            } else if (qtd >= 20 && qtd <= 49) {
+                desconto = 0.05;
+            } else if (qtd === 50) {
+                desconto = 0.07;
+            }
+
+            var valorTotal = qtd * precoUnitario * (1 - desconto);
+            resultado.innerHTML = `<p>Total a pagar: R$${valorTotal.toFixed(2)}</p>`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Situação Financeira da Conta Bancária</title>
+</head>
+<body>
+    <h1>Situação Financeira da Conta Bancária</h1>
+    <input type="number" id="saldo" placeholder="Saldo da conta">
+    <button onclick="cheque()">Verificar finanças</button>
+    <div id="tela"></div>
+    
+</body>
+<script>
+    function cheque(){
+        var saldoConta = Number(saldo.value);
+        if (saldoConta == 0){
+            tela.innerHTML = `<p>Conta zerada</p>.`
+        }
+        if (saldoConta < 0){
+            tela.innerHTML = `<p style="color: red; font-style: italic; font-weight: bold;">Conta negativa</p>.`
+        } 
+        if (saldoConta > 0){
+            tela.innerHTML = `<p style="color: green; font-style: italic; font-weight: bold;">Conta positiva</p>.`
+            
+         
+        }
+    }
+</script>
+</html>

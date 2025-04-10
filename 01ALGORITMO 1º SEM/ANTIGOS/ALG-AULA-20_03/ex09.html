@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exiba todos os números pares no intervalo informado pelo usuário</h1>
+
+    <input type="number" name="" id="ipt">
+   
+    <input type="number" name="" id="ipt2">
+    <button onclick="contar()">Pares </button>
+    
+    <div id="resultado"></div>
+
+</body>
+<script>
+    function contar(){
+    
+    var numero = ipt.value;
+    var numero2 = ipt2.value;
+    var i = numero;
+    while (i<=numero2){
+      
+        
+        if ((i % 2) == 0) {par = true} else par = false
+        if (par == true){
+            resultado.innerHTML += `${i} <br>`
+  
+        }
+        i ++;
+    }
+}
+</script>
+</html>

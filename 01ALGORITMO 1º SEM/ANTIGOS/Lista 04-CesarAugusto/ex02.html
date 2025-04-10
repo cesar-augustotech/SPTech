@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco Virtual-César</title>
+</head>
+<body>
+    <h1>Banco Virtual: Depósitos e Retiradas</h1>
+    <label for ="ipt_number">Valor:</label>
+    <br>
+    <input type="text" id="ipt_number">
+    <br>
+    <button onclick="depositar()"> Depositar</button>
+    
+    <button onclick="retirar()">Retirar</button>
+
+        <h3 id="resultado"></h3>
+    
+    
+</body>
+
+<script>
+    var saldo = 0;
+
+    function depositar(){
+        saldo += Number(ipt_number.value);
+        
+        resultado.innerHTML = `Depósito de R$ ${ipt_number.value} efetuado! Saldo atual: R$ ${saldo}`;
+
+
+
+
+        
+
+    }
+    function retirar(){
+        saldo -= Number(ipt_number.value);
+        resultado.innerHTML = `Retirada de R$ ${ipt_number.value} efetuado! Saldo atual: R$ ${saldo}`;
+
+    }
+</script>
+</html>

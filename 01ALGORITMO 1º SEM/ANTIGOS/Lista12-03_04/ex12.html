@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Avaliação de Atendente - Média</title>
+</head>
+<body>
+  <header>
+      <div class="header-left">
+          <img style="height: 75px;" src="https://www.sptech.school/assets/images/logos/sptech_logo_1.png" alt="Logo SPTech">
+          <h1 class="titulo">Lista 12 - 12 - Algoritmos</h1>
+      </div>
+      <div class="header-right">
+          <h3>desenvolvido por:</h3>
+          <div class="criador">
+              <h2>César Augusto</h2>
+          </div>
+      </div>
+  </header>
+
+  <main class="exercicio">
+    
+      <div class="ipts">
+         <label>Avaliação de Atendente</label>
+         <br>
+         <button class="comecar" onclick="avaliar()">Avaliar</button>
+         <div class="resultado" id="resultadoAvaliacao"></div>
+         <div class="resultado" id="resultadoEmoji"></div>
+      </div>
+      
+
+      <div class="ipts">
+         <button class="comecar" onclick="verificarMedia()">Verificar Média</button>
+         <div class="resultado" id="resultadoMedia"></div>
+      </div>
+  </main>
+
+  <script>
+     
+      var avaliacoes = [];
+
+      function avaliar() {
+       
+          var nota = (Math.random() * 5).toFixed(1);
+
+          avaliacoes.push(Number(nota));
+          
+         
+          var emoji = "";
+          if (nota >= 0 && nota <= 0.5) {
+              emoji = "😢 <br> (Muito Triste)";
+          } else if (nota > 0.5 && nota <= 1.5) {
+              emoji = "😟 <br> (Meio Triste)";
+          } else if (nota > 1.5 && nota <= 3.5) {
+              emoji = "😐 <br> (Neutro)";
+          } else if (nota > 3.5 && nota <= 4.5) {
+              emoji = "🙂 <br> (Feliz)";
+          } else if (nota > 4.5) {
+              emoji = "😁 <br> (Muito Feliz)";
+          }
+          
+          
+          resultadoAvaliacao.innerHTML = "Nota recebida: " + nota;
+          resultadoEmoji.innerHTML = emoji;
+          
+          resultadoMedia.innerHTML = "";
+      }
+      
+      function verificarMedia() {
+          if (avaliacoes.length === 0) {
+              resultadoMedia.innerHTML = "Nenhuma avaliação realizada ainda!";
+          } else {
+              
+              var soma = avaliacoes.reduce(function(total, valor) {
+                  return total + valor;
+              }, 0);
+              var media = (soma / avaliacoes.length).toFixed(1);
+              
+            
+              var emojiMedia = "";
+              if (media >= 0 && media <= 0.5) {
+                  emojiMedia = "😢 (Muito Triste)";
+              } else if (media > 0.5 && media <= 1.5) {
+                  emojiMedia = "😟 (Meio Triste)";
+              } else if (media > 1.5 && media <= 3.5) {
+                  emojiMedia = "😐 (Neutro)";
+              } else if (media > 3.5 && media <= 4.5) {
+                  emojiMedia = "🙂 (Feliz)";
+              } else if (media > 4.5) {
+                  emojiMedia = "😁 (Muito Feliz)";
+              }
+              
+              
+              resultadoMedia.innerHTML = "Média geral: " + media + "<br>" + emojiMedia;
+          }
+      }
+  </script>
+
+  <style>
+      * {
+          margin: 0;
+          font-family: Arial, Helvetica, sans-serif;
+          color: white;
+      }
+      :root {
+          --tamanho-header: 90px;
+          --tamanho-footer: 90px;
+          --tamanho-main: calc(100vh - var(--tamanho-header) - 2px);
+      }
+      html, body {
+          height: 100%;
+      }
+      body {
+          display: flex;
+          flex-direction: column;
+          min-height: 100%;
+      }
+      header {
+          height: var(--tamanho-header);
+          background: #1B3A57;
+          padding: 15px 0;
+          text-align: center;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+      }
+      .header-left {
+          display: flex;
+          align-items: center;
+      }
+      .header-right {
+          margin-right: 20px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+      }
+      .criador {
+          display: flex;
+          align-items: center;
+      }
+      .exercicio {
+          background: linear-gradient(to bottom, #1B3A57, #5DA8C1);
+          min-height: var(--tamanho-main);
+          padding-top: 20px;
+      }
+      .exercicio .ipts {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 20px;
+          border-radius: 10px;
+      }
+      .exercicio .resultado {
+          background: rgba(44, 62, 80, 0.9);
+          padding: 15px;
+          border-radius: 10px;
+          text-align: center;
+          width: 320px;
+          margin: 15px auto 0;
+          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+          font-weight: bold;
+      }
+      button {
+          background-color: #3498db;
+          color: white;
+          font-size: 16px;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: 0.3s;
+      }
+      button:hover {
+          background-color: #1f6692;
+          transform: scale(1.08);
+          box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+      }
+      .comecar {
+          font-weight: 800; 
+          background-color: rgb(66, 98, 136);
+      }
+  </style>
+</body>
+</html>

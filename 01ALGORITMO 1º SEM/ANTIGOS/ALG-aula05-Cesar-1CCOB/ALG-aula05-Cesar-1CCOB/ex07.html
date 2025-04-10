@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheque Especial do Banco XPTO</title>
+</head>
+<body>
+    <input type="number" id="saldo" placeholder="Saldo da conta">
+    <input type="number" id="debito" placeholder="Valor do debito">
+    <button onclick="cheque()">Analisar conta</button>
+    <div id="tela"></div>
+    
+</body>
+<script>
+    function cheque(){
+        var saldoConta = Number(saldo.value);
+        var debitoConta = Number(debito.value);
+        var chequeConta = saldoConta - debitoConta;
+        if (chequeConta < 0){
+            tela.innerHTML = `<p style="color: red; font-style: italic; font-weight: bold;">O saldo atual da conta corrente é R$${chequeConta.toFixed(2)}</p>.`
+        } else {
+            tela.innerHTML = `<p>O saldo atual da conta corrente é R$${chequeConta.toFixed(2)}.</p>`
+        }
+    }
+
+
+</script>
+</html>

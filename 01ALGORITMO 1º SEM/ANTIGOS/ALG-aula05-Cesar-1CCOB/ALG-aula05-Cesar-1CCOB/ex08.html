@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peso Médio no Elevador</title>
+</head>
+<body>
+    <label for="pesoH">Quantidade de homens que entraram no elevador</label>
+    <input type="number" id="pesoH" placeholder="Qtd de homens">
+    <label for="pesoM">Quantidade de mulheres que entraram no elevador</label>
+    <input type="number" id="pesoM" placeholder="Qtd de mulheres">
+    <button onclick="calcular()">Analisar peso</button>
+    <div id="tela"></div>
+</body>
+<script>
+    function calcular(){
+        var pesoHomens = Number(pesoH.value) * 80;
+        var pesoMulheres = Number(pesoM.value) * 60;
+        var pesoTotal = pesoHomens + pesoMulheres;
+        tela.innerHTML = `<h3> Este elevador suporta 800Kg e o peso estimado no elevador é de ${pesoTotal}Kg.<h3>`
+        if (pesoTotal > 800){
+            tela.innerHTML += `<p id="aviso" style="color:blue";>Peso médio excedido: Será necessário que alguém desça para que o elevador se movimente</p>`
+        } else {
+           tela.innerHTML +=`<p id="aviso">Peso médio dentro do limite</p>`;
+        }
+         }
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 04 - César</title>
+</head>
+<body>
+    <div id="numeros" style="background-color: aliceblue;align-self: center;display: flex;justify-content: center;align-items: center;flex-direction: column;">
+        <label for="x">Nome do guerreiro</label>
+        <input id="x" type="text">
+        <label for="y">Ki normal</label>
+        <input id="y" type="number">
+    
+    </div>
+
+
+    <div style="background-color: darkgrey; align-items: center; display: flex; justify-content: center; align-content: stretch; flex-wrap: nowrap; flex-direction: column-reverse;">
+        <button onclick="function1()">Ver KI em cada forma</button>
+    </div>    
+    
+    
+</body>
+
+<script>
+    function function1(){
+        alert("O KI de " + x.value + " na forma Super Sayajin é " + (Number(y.value) * 50))
+        alert("O KI de " + x.value + " na forma Super Sayajin II é " + (Number(y.value) * 100))
+    
+        }
+</script>
+</html>

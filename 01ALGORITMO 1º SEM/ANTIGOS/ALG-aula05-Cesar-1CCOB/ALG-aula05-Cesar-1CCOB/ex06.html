@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6. Análise de Financiamento Habitacional  </title>
+</head>
+
+<body>
+    <input type="number" id="valor_renda" placeholder="Renda mensal">
+    <input type="number" id="valor_prestacao" placeholder="Valor da prestação">
+    <button onclick="financiamento()">Analisar financiamento</button>
+    <div id="tela"></div>
+
+    
+</body>
+
+<script>
+    function financiamento(){
+        var renda = Number(valor_renda.value);
+        var prestacao = Number(valor_prestacao.value);
+        var porcentagem = (prestacao / renda) * 100;
+        tela.innerHTML = `A prestação corresponde a ${porcentagem.toFixed(2)}% da renda familiar.`
+        if (porcentagem > 30){
+            tela.innerHTML += `<p style="color: red; font-style: italic; font-weight: bold;">Seu financiamento foi negado!</p>`
+        } else {
+            tela.innerHTML += `<p>Seu financiamento foi aprovado!</p>`
+        }
+    }
+</script>
+</html>

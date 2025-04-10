@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <h1>Eleição</h1>
+    <br>
+    <label for="cA">Votos do 1º Candidato</label>
+    <input type="number" id="cA">
+    <br>
+    <label for="cB">Votos do 2º Candidato</label>
+    <input type="number" id="cB">
+    <br>
+    <label for="cV">Votos em branco</label>
+    <input type="number" id="cV">
+    <br>
+    <label for="cN">Votos nulos</label>
+    <input type="number" id="cN">
+    <br>
+    
+    <button onclick="resultado()">Resultado da Eleição</button>
+
+    <div id="tela"></div>
+    
+    
+</body>
+
+<script>
+    
+    
+    function resultado(){
+        var votos = Number(cA.value) + Number(cB.value) + Number(cV.value) + Number(cN.value);
+        tela.innerHTML = `<h3>Total de votos: ${votos}</h3> 
+        <h4>1º Candidato: ${cA.value}</h4>
+        <h4>2º Candidato: ${cB.value}</h4>
+        <h4>Votos Inválidos: ${Number(cV.value) + Number(cN.value)}</h4>
+         `
+
+
+
+    }
+</script>
+</html>

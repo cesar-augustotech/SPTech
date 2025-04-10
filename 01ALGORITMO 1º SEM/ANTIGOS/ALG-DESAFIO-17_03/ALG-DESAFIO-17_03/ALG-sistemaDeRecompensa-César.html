@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cesar-Sistema de Recompensas e Descontos</title>
+</head>
+<body>
+    <div id="entrada">
+        <label>Quantos produtos você comprou?</label>
+        <input id="ipt_quantidade_produtos" type="number" min="1">
+        <label>Qual o valor total gasto?</label>
+        <input id="ipt_cliente_total" type="number" min="1">
+        <label>Tem assinatura VIP?</label>
+        <input id="check_cliente_vip" type="checkbox">
+        <button onclick="verificar()">Verificar</button>
+    </div>  
+    <div id="resultado">
+
+
+    </div>
+    
+</body>
+<script>
+    function verificar(){
+        var qtd_prod = Number(ipt_quantidade_produtos.value);
+        var val_total = Number(ipt_cliente_total.value);
+        var vip = check_cliente_vip.checked;
+        var desconto = 0;
+        var recompensa = 0;
+        var valor_desconto = 0;
+
+        console.log(val_total)
+        if((qtd_prod > 10 && val_total >1000) && vip){
+            desconto += 15;
+        }
+         if ((qtd_prod > 10 && val_total > 500) || vip){
+            desconto += 10;
+        } 
+        if (((qtd_prod<=10 && qtd_prod>=6) && val_total > 200) || vip){
+            desconto+=5;
+        } 
+        if (qtd_prod<6) {
+            desconto = 0;
+        }
+        console.log(val_total)
+        
+        if (desconto >= 1){
+            valor_desconto = val_total * (desconto / 100)
+        } 
+        console.log(valor_desconto);
+
+        if((qtd_prod>5 && val_total > 200) || vip){
+            recompensa += 50;
+        } else { recompensa = 0}
+         if (qtd_prod>10 && val_total > 500){
+            recompensa += 100;
+        } 
+        console.log(val_total)
+
+        resultado.innerHTML = `O valor do desconto é ${valor_desconto} (${desconto}%), totalizando: ${val_total - valor_desconto}<br> Pontos de recompensa: ${recompensa}`
+    }
+</script>
+</html>

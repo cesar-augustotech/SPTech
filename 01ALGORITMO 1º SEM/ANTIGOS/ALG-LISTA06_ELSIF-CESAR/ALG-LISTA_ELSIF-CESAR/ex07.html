@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex07.ConsumoCalorias/César</title>
+</head>
+
+<body>
+    <!-- 7. Consumo de Calorias: Sua Dieta Está Saudável? -->
+    <label for="ipt_pao">Pães franceses por dia:</label>
+    <input id="ipt_pao" type="number" min="0">
+    <br>
+    <label for="ipt_bolacha">Pacotes de bolacha recheada por dia:</label>
+    <input id="ipt_bolacha" type="number" min="0">
+    <br>
+    <label for="ipt_achocolatado">Copos de achocolatado por dia:</label>
+    <input id="ipt_achocolatado" type="number" min="0">
+    <br>
+    <button onclick="verificarCalorias()">Verificar calorias</button>
+    <div id="resultado"></div>
+</body>
+<script>
+    function verificarCalorias() {
+        var pao = ipt_pao.value * 50;
+        var bolacha = ipt_bolacha.value * 80;
+        var achocolatado = ipt_achocolatado.value * 70;
+        
+        var calorias = pao + bolacha + achocolatado;
+        var mensagem = "";
+        
+        if (calorias < 200) {
+            mensagem = "Parabéns, vai ficar em forma!";
+        } else if (calorias <= 400) {
+            mensagem = "Cuidado, vai ficar menos saudável !";
+        } else {
+            mensagem = "Alerta crítico de saúde !!!";
+        }
+        
+        resultado.innerHTML = "<h3>Consumo Diário de Calorias: " + calorias + " kcal</h3><p>" + mensagem + "</p>";
+    }
+</script>
+</html>

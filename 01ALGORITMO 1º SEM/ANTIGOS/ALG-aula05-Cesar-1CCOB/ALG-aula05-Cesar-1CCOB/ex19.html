@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19.Cesar</title>
+</head>
+<body>
+    <label for="ipt_temp">Temperatura do Ambiente</label>
+    <input type="number" id="ipt_temp">
+    <br>
+    <button onclick="verificar()">Verificar clima</button>
+
+    <div id="tela"></div>
+    
+</body>
+
+<script>
+    
+    function verificar(){
+        if (ipt_temp.value >= 10){
+            tela.innerHTML = `<img src="https://gourmetjr.com.br/wp-content/uploads/2018/03/JPEG-image-B6230B799E47-1_1170x600_acf_cropped_490x292_acf_cropped.jpeg" alt="Comida delícia">`
+        } else {
+            tela.innerHTML= `<img src="https://thumbs.dreamstime.com/b/torrada-queimada-e-rosto-triste-brinde-com-%C3%ADcone-de-no-conceito-placa-verde-para-comida-ou-o-dia-ruim-come%C3%A7a-in%C3%ADcio-da-manh%C3%A3-214531706.jpg" alt="Comida não delícia :(">`
+        }
+    }
+</script>
+</html>

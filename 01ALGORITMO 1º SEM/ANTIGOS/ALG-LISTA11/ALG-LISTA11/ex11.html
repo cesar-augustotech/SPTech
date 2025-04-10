@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <style>
+        .par {
+            color: blue;
+        }
+        .impar {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tabuada</h1>
+
+    
+   
+    <label for="ipt_tabuada">Escolha a tabuada (2 a 9):</label>
+    <select id="ipt_tabuada">
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+    </select>
+    
+    <br><br>
+    
+    <label for="ipt_limite">Até qual número a tabuada deve ir?</label>
+    <input type="number" id="ipt_limite" value="12" min="1">
+    
+    <br><br>
+    
+   
+    <button onclick="calcular()">Ver Tabuada</button>
+    
+    <div id="resultado"><h3 id="linha"></h3></div>
+</body>
+<script>
+    function calcular(){
+        var limite = Number(ipt_limite.value);
+        var tabuada = Number(ipt_tabuada.value);
+        
+        resultado.innerHTML = ``
+        
+        /*
+        var i = 0;
+        while(i <= tabuada){
+            
+            if ((i%2) == 0){
+                resultado.innerHTML += `<h3 class= par> ${limite} x ${i} = ${limite * i}</h3>`
+            } else resultado.innerHTML += `<h3 class= impar> ${limite} x ${i} = ${limite * i}</h3>`
+
+            i++
+        }
+    */
+        for (var i = 0; i <= tabuada; i++){
+            if ((i%2) == 0){
+                resultado.innerHTML += `<h3 class= par> ${limite} x ${i} = ${limite * i}</h3>`
+            } else resultado.innerHTML += `<h3 class= impar> ${limite} x ${i} = ${limite * i}</h3>`
+
+
+        }
+
+
+    }
+    
+</script>
+</html>

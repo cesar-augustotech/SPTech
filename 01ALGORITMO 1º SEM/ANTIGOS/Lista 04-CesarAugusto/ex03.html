@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Calculadora do Sono</h1>
+    <label for="mimi">Quantas horas você dormiu?</label>
+    <br>
+    <input type="text" id="mimi">
+    <button onclick="calcular()">Calcular Sono</button>
+
+    <h2 id="resultado"></h2>
+
+
+    
+</body>
+
+<script>
+    function calcular(){
+        var horas = Number(mimi.value);
+        resultado.innerHTML = `Ao dormir ${horas}, você dormiu: <br> <h4>${horas * 0.05} horas na fase 1</h4> <br> <h4>${horas * 0.45} horas na fase 2</h4> <br> <h4>${horas * 0.30} horas na fase 3</h4> <br> <h4>${horas * 0.2} horas na fase REM</h4>`;
+    }
+</script>
+</html>

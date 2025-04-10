@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--3. Validação de Notas: Seu Resultado é Aceitável?
+Crie um programa o qual:  
+
+a) Pergunte uma nota de um aluno  
+
+b) Ao clicar em "Avaliar aluno"...  
+
+c) Caso a nota for entre 0 e 10, exibir um alert com a frase "Nota válida!"  
+
+d) Caso a nota não estiver no intervalo definido em c), exibir um alert com a frase "Onde já se viu nota menor que 0 e maior que 10?!"  -->
+    <label>Digite a nota do aluno</label>
+    <input type="text" id="nota_ipt" placeholder="Digite a nota do aluno">
+    <button onclick="avaliarAluno()">Avaliar aluno</button>
+    
+    
+</body>
+<script>
+    function avaliarAluno() {
+        var nota = nota_ipt.value;
+        if (nota >= 0 && nota <= 10) {
+            alert("Nota válida!");
+        } else {
+            alert("Onde já se viu nota menor que 0 e maior que 10?!");
+        }
+    }
+</script>
+</html>

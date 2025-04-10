@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex08.MetaEconomia/César</title>
+</head>
+
+<body>
+    <!-- 8. Meta de Economia: Você Está no Caminho Certo? -->
+    <label for="ipt_meta">Qual sua meta de economia?</label>
+    <input id="ipt_meta" type="number" min="0">
+    <br>
+    <label for="ipt_guardado">Quanto você tem guardado?</label>
+    <input id="ipt_guardado" type="number" min="0">
+    <br>
+    <button onclick="analisarEconomia()">Analisar economia</button>
+    <div id="resultado"></div>
+</body>
+<script>
+    function analisarEconomia() {
+        var meta = ipt_meta.value;
+        var guardado = ipt_guardado.value;
+        var diferenca = guardado - meta;
+        var mensagem = "";
+        
+        if (diferenca == 0) {
+            mensagem = "Parabéns, meta alcançada!";
+        } else if (diferenca > 0) {
+            mensagem = "Parabéns, meta alcançada! Meta ultrapassada em " + diferenca;
+        } else {
+            mensagem = "Força! Ainda em busca da meta! Falta " + Math.abs(diferenca);
+        }
+        
+        resultado.innerHTML = "<p>" + mensagem + "</p>";
+    }
+</script>
+</html>

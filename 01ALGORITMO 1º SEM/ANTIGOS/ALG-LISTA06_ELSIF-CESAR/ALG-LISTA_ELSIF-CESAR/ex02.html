@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex02.Classe/Cesar</title>
+</head>
+<body>
+<h1>2. Classe Social em Tuvalu: Em Qual Você se Encaixa?</h1>
+<!--2. Classe Social em Tuvalu: Em Qual Você se Encaixa?
+Crie um programa que exibe a classe social de uma pessoa que mora em Tuvalu (um dos menores países do mundo) conforme a renda familiar mensal. 
+
+a) Solicite a renda familiar mensal 
+
+b) Ao clicar no botão “Analisar Renda”, deve aparecer abaixo uma dessas frases:   
+
+   "Classe E" (até 250) 
+
+   "Classe D" (+250 até 900) 
+
+   "Classe C" (+900 até 2500) 
+
+   "Classe B" (+2500 até 9500) 
+
+   "Classe A" (+9500) 
+   -->
+    <label for="ipt_renda">Qual sua renda familiar mensal?</label>
+    <input id="ipt_renda" type="number">
+    
+    <button onclick="analisar()">Analisar Renda</button>
+    <div id="resultado">
+        <h3 id="h1Base"></h3>
+        <p id="classe"></p>
+    </div>
+</body>
+<script>
+    function analisar(){
+        var renda = ipt_renda.value;
+        h1Base.innerHTML = "Você pertence à classe:";
+        var texto = "";
+        if (renda <= 250){
+            texto = `Classe E`
+        }else if (renda <= 900){
+            texto = `Classe D`
+        }else if (renda <= 2500){
+            texto = `Classe C`
+        }else if (renda <= 9500){
+            texto = `Classe B`
+        }else if (renda > 9500){
+            texto = `Classe A`
+        }
+        classe.innerHTML = texto;
+        
+    }
+
+</script>
+</html>

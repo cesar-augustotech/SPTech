@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 5</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img style='height: 75px;' src="https://www.sptech.school/assets/images/logos/sptech_logo_1.png">
+            <h1 class="titulo">Revisão for - 05 - Algoritmos</h1>
+        </div>
+        <div class='header-right'>
+            <h3>desenvolvido por:</h3>
+            <div class="criador">
+                <h2>César Augusto</h2>
+            </div>
+        </div>
+    </header>
+
+    <main class="exercicio">
+        <div class="ipts">
+            <label>Limite inferior (maior que 1):</label>
+            <br>
+            <input type="number" id="ipt_limiteInf">
+            <br>
+            <label>Limite superior (menor que 100 e maior que o inferior):</label>
+            <br>
+            <input type="number" id="ipt_limiteSup">
+            <br>
+            <label>Número para testar divisibilidade (entre 3 e 10):</label>
+            <br>
+            <input type="number" id="ipt_divisor">
+            <br>
+            <button class="comecar" onclick="contar()">Contar</button>
+        </div>
+
+        <div class="resultado" id="resultado"></div>
+    </main>
+
+    <script>
+        function contar() {
+            var limiteInf = Number(ipt_limiteInf.value);
+            var limiteSup = Number(ipt_limiteSup.value);
+            var divisor = Number(ipt_divisor.value);
+            var texto = '';
+            var soma = 0;
+            var quantidade = 0;
+            var maior = 0;
+
+            if (limiteInf <= 1) {
+                resultado.innerHTML += "O limite inferior deve ser maior que 1.<br>";
+                return;
+            }
+            if (limiteSup >= 100 || limiteSup <= limiteInf) {
+                resultado.innerHTML += "O limite superior deve ser menor que 100 e maior que o limite inferior.<br>";
+                return;
+            }
+            if (divisor < 3 || divisor > 10) {
+                resultado.innerHTML += "O número para teste de divisibilidade deve estar entre 3 e 10.<br>";
+                return;
+            }
+
+            
+            for (var i = limiteInf; i <= limiteSup; i++) {
+                if (i % divisor === 0) {
+                    texto += i + ", ";
+                    soma += i;
+                    quantidade++;
+                    if (i > maior) {
+                        maior = i;
+                    }
+                }
+            }
+
+            var media = quantidade > 0 ? (soma / quantidade).toFixed(2) : 0;
+
+            resultado.innerHTML += texto + "<br><br>";
+            resultado.innerHTML += `QUANTIDADE TOTAL DE NÚMEROS EXIBIDOS: ${quantidade}<br><br>`;
+            resultado.innerHTML += `SOMATÓRIO DOS NÚMEROS EXIBIDOS: ${soma}<br><br>`;
+            resultado.innerHTML += `MÉDIA DOS NÚMEROS EXIBIDOS: ${media}<br><br>`;
+            resultado.innerHTML += `MAIOR NÚMERO EXIBIDO: ${maior}<br><br>`;
+        }
+    </script>
+</body>
+
+</html>

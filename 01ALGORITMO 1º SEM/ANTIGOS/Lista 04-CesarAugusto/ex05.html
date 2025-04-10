@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada Interativa-César</title>
+</head>
+
+<body>
+    <h1>Tabuada Interativa</h1>
+    
+        <label for="num">Número:</label>
+        <input type="number" name="ipt_num" id="ipt_num" required>
+        <input type="submit" value="Calcular" onclick="calcular()">
+        <br>
+        <div id="tela"></div>
+
+    
+    
+    
+    
+</body>
+<script>
+    function calcular(){ 
+    var num = Number(ipt_num.value);
+    tela.innerHTML = '';
+    
+    tela.innerHTML += `<p>${num} x 1 = ${num * 1}</p>`;
+    tela.innerHTML += `<p>${num} x 2 = ${num * 2}</p>`;
+    tela.innerHTML += `<p>${num} x 3 = ${num * 3}</p>`;
+    tela.innerHTML += `<p>${num} x 4 = ${num * 4}</p>`;
+    tela.innerHTML += `<p>${num} x 5 = ${num * 5}</p>`;
+    tela.innerHTML += `<p>${num} x 6 = ${num * 6}</p>`;
+    tela.innerHTML += `<p>${num} x 7 = ${num * 7}</p>`;
+    tela.innerHTML += `<p>${num} x 8 = ${num * 8}</p>`;
+    tela.innerHTML += `<p>${num} x 9 = ${num * 9}</p>`;
+
+    /* Mais fácil
+    function calcular(){
+        var num = Number(ipt_num.value);
+        tela.innerHTML = '';
+        for( i = 1; i < 10; i++){
+            tela.innerHTML += `<p>${num} x ${i} = ${num * i}</p>`;
+        }
+    }
+    */
+    }
+    
+    
+
+</script>
+
+</html>

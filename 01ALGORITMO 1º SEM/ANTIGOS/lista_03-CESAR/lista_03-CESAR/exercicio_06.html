@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operações aritméticas</title>
+</head>
+<body style="background-color: azure;">
+
+    
+    
+    
+    <div id="números" style="background-color: aliceblue;align-self: center;display: flex;justify-content: center;align-items: center;flex-direction: column;">
+
+    <label for="ipt_num01">Digite o primeiro número:</label>
+    <input type="number" id="ipt_num01">
+    <label for="ipt_num02">Digite o segundo número:</label>
+    <input type="number" id="ipt_num02">
+    </div>
+
+    <br>
+    
+    <div style="background-color: darkgrey; align-items: center; display: flex; justify-content: center; align-content: stretch; flex-wrap: nowrap; flex-direction: column-reverse;">
+    
+    <button onclick="multiplicar()">Multiplicar</button>
+    <button onclick="dividir()">Dividir</button>
+    <br>
+    <button onclick="subtrair()">Subtrair</button>
+    <button onclick="somar()">Somar</button>
+    </div>
+
+
+    
+    
+    
+</body>
+
+<script>
+    function multiplicar(){
+        alert('O produto entre ' + ipt_num01.value + " e " + ipt_num02.value + " é " + (parseFloat(ipt_num01.value) * parseFloat(ipt_num02.value)));
+    }
+    function dividir(){
+        alert('A razão entre '  + ipt_num01.value + " e " + ipt_num02.value + " é " + (ipt_num01.value / ipt_num02.value));
+    }
+    function subtrair(){
+        alert('A diferença entre ' + ipt_num01.value + " e " + ipt_num02.value + " é " + (ipt_num01.value - ipt_num02.value));
+    }
+    function somar(){
+        alert('A soma entre ' + ipt_num01.value + " e " + ipt_num02.value + " é " + (Number(ipt_num01.value) + Number(ipt_num02.value)));
+    }
+</script>
+</html>

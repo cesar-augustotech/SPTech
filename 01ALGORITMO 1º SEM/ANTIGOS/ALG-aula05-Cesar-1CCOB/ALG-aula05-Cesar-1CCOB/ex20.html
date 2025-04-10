@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20.Cesar</title>
+</head>
+<body>
+    <h2>Quantas pessoas estão no elevador?</h2>
+    <input id="ipt_homi" placeholder="Quantidade de homens" type="number"></input>
+    <input id="ipt_muie" placeholder="Quantidade de mulheres" type="number"></input>
+
+    <button onclick="calculo()">Ligar elevador</button>  
+    <div id="tela"></div>  
+</body>
+<script>
+    var baseH = 90;
+    var baseM = 70;
+    function calculo(){
+        var pesoTotal = (Number(ipt_homi.value) * baseH) + (Number(ipt_muie.value) * (baseM));
+        var pesoMais = pesoTotal - 500;
+        if (pesoTotal <= 500){
+            tela.innerHTML = `<h3 style="color:green"> Elevador vai se mover, pois está com ${pesoTotal}Kg</h3>`
+        } else {
+            tela.innerHTML =`<h3 style="color:red"> Alguém precisa descer. Precisa perder ${pesoMais}Kg</h3>`
+        }
+
+    }
+</script>
+</html>

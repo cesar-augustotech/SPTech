@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Carona</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        .container {
+            text-align: center;
+        }
+        .output {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Simulador de Carona</h1>
+        <label for="numPassageiros">Quantas pessoas vão entrar no carro?</label><br>
+        <input type="number" id="numPassageiros" min="1" placeholder="Digite o número de passageiros"><br><br>
+        <button onclick='funcao()' id="partiuCarona">#Partiu Carona</button>
+        <div class="output" id="saida"></div>
+    </div>
+</body>
+<script>
+    function funcao(){
+        var valor1 = numPassageiros.value;
+
+        for (var i = 0; i <= valor1; i++){
+            if (i == 1){
+                saida.innerHTML = `Entrou o 1° passageiro (que é o(a) motorista) <br>`;
+            } else if ( i > 5){
+                saida.innerHTML += `O ${i}° passageiro terá que esperar!<br>`
+            } else saida.innerHTML += `Entrou o ${i} passageiro<br>`
+
+        
+        }
+
+    }
+
+</script>
+</html>

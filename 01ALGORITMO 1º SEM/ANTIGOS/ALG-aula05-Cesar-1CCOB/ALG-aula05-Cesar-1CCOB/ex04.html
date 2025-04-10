@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4. Divisão Justa da Pizza</title>
+</head>
+
+<!--4. Divisão Justa da Pizza
+Um grupo de amigos costuma se reunir na casa de um deles para comer pizza. Só que eles têm um trato de que o valor da pizza,
+ quando dividido entre os amigos, não deve passar de 20,00 por amigo. Ajude-os criando um programa o qual: 
+
+a) Pergunte o valor da pizza 
+
+b) Pergunte a quantidade de amigos reunidos 
+
+c) Ao clicar em "Rola a pizza?", calcule e exiba o valor que cada amigo vai pagar na pizza com uma frase na página
+ como esta "Cada amigo vai pagar R$X pela pizza" 
+
+d) Somente caso o valor por amigo passe de R$20,00, exiba também a frase "Deu ruim! Pizza muito cara!" 
+
+4a. Divisão Justa da Pizza (Com Estilo)  
+Refaça a questão anterior de tal forma que a frase do item d) apareça na cor de letra vermelha com itálico e negrito. 
+-->
+<body>
+    <h1>4. Divisão Justa da Pizza</h1>
+    <label for="valor">Qual o valor da pizza?</label>
+    <input id="valor" type="number"> <br>
+    <label for="pessoas">Quantas pessoas vão rachar?</label>
+    <input id="pessoas" type="number">
+
+    <button onclick="calculo()">Rola a pizza?</button>
+    <h3 id="pagar"></h3>
+    <h3 style="color: red; font-style: italic; font-weight: bold;" id="caro"></h3>
+
+    
+</body>
+
+<script>
+    function calculo(){
+        var media = Number(valor.value) / Number(pessoas.value);
+
+        pagar.innerHTML= `Cada amigo vai pagar R$${media} pela pizza`;
+
+        if (media > 20){
+            caro.innerHTML=`Deu ruim! Pizza muito cara!`
+        
+        } else caro.innerHTML=``
+
+        
+
+    }
+</script>
+</html>

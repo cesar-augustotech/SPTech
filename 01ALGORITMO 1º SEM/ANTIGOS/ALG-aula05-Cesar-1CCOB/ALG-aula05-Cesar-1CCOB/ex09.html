@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tempo Gasto com Séries</title>
+</head>
+<body>
+    <label for="serie">Última série assistida</label>
+    <input type="type" id="serie" placeholder="Última série">
+    <label for="episodes">Quantidade de episódios</label>
+    <input type="number" id="episodes" placeholder="Qtd de episódios">
+    <button onclick="tempo()">Verificar nível</button>
+    <div id="tela"></div>
+
+    
+</body>
+<script>
+    function tempo(){
+        var serieC = Number(serie.value);
+        var episodesC = Number(episodes.value) * 22;
+        var tempoTotal = serieC * episodesC;
+        tela.innerHTML = `<h3>Vejo que você gosta da série ${serie.value}.</h3>`
+        if (tempoTotal > (30*60)){
+            tela.innerHTML += `<p id="aviso" style="color: green; font-style: italic; font-weight: bold;">Uau, você realmente gosta dessa série!".</p>`
+        } else {
+            tela.innerHTML = `<p id="aviso"></p>`
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img style='height: 75px;' src="https://www.sptech.school/assets/images/logos/sptech_logo_1.png">
+            <h1 class="titulo">Lista 12 - 5 - Algoritmos</h1>
+        </div>
+        <div class='header-right'>
+            <h3>desenvolvido por:</h3>
+            <div class="criador">
+
+                <h2>César Augusto</h2>
+            </div>
+        </div>
+    </header>
+
+    <main class="exercicio">
+        <div class="ipts">
+            <label>Jo ken po</label>
+            <br>
+           
+            <br>
+            <button class='comecar' onclick="comecar()">Jogar</button>
+
+
+
+        </div>
+        <div class="resultado" id="resultado1">
+            <div id="escolha" style="height:200px; font-size: 40px;display: flex; align-items: center; justify-content: center;"></div>
+            <div id="resultado"></div>
+
+        </div>
+    </main>
+</body>
+<script>
+
+
+    var jogador1 = 0;
+    var jogador2 = 0;
+    function comecar() {
+        resultado.innerHTML =''
+        var jogada1 = Math.floor(Math.random() * 3);
+        var jogada2 = Math.floor(Math.random() * 3);
+
+        jogada1 == 0 ? jogada1 = '✂️' : jogada1 == 1 ? jogada1 = '🪨' : jogada1 = '📜';
+        jogada2 == 0 ? jogada2 = '✂️' : jogada2 == 1 ? jogada2 = '🪨' : jogada2 = '📜';
+
+
+        escolha.innerHTML = jogada1;
+        escolha. innerHTML += ` x ${jogada2}`;
+        // Determinar o vencedor
+        if (jogada1 === jogada2) {
+            resultado.innerHTML = "Empate!";
+        } else if (
+            (jogada1 === "🪨" && jogada2 === "✂️") ||
+            (jogada1 === "📜" && jogada2 === "🪨") ||
+            (jogada1 === "✂️" && jogada2 === "📜")
+        ) {
+            resultado.innerHTML += "O jogador 1 ganhou!";
+            jogador1 ++
+        } else {
+            resultado.innerHTML += 'O jogador 2 ganhou!';
+            jogador2 ++
+        }
+
+        resultado.innerHTML += `<br>Jogador 1: ${jogador1} vitória(s)<br>`
+        resultado.innerHTML += `Jogador 2: ${jogador2} vitória(s)<br>`
+        
+    
+
+
+
+
+
+    }
+
+</script>
+
+
+
+
+
+<style>
+    * {
+        margin: 0px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+    }
+
+    :root {
+        --tamanho-header: 90px;
+        --tamanho-footer: 90px;
+        --tamanho-main: calc(100vh - var(--tamanho-header) - 2px);
+    }
+
+    html,
+    body {
+        height: 100%;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+
+    }
+
+    /* INICIO HEADER */
+    header {
+        height: var(--tamanho-header);
+        background: #1B3A57;
+        padding: 15px 0;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header-left {
+        color: #FFFFFF;
+        display: flex;
+        align-items: center;
+    }
+
+    .header-right {
+        margin-right: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .criador {
+        display: flex;
+        align-items: center;
+    }
+
+    /* FIM DA HEADER */
+
+    .exercicio {
+
+
+        background: linear-gradient(to bottom, #1B3A57, #5DA8C1);
+        min-height: var(--tamanho-main);
+    }
+
+    .exercicio .ipts {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 30px;
+        padding-right: 40px;
+        padding-bottom: 30px;
+        padding-left: 40px;
+
+
+
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .exercicio .resultado {
+        background: rgba(44, 62, 80, 0.9);
+        color: white;
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+        width: 320px;
+        margin: 30px auto;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        font-weight: bold;
+    }
+
+    /* Estilizando o input */
+    input {
+        width: 120px;
+        padding: 6px;
+        font-size: 18px;
+        text-align: center;
+        border: 2px solid #3498db;
+        border-radius: 8px;
+        outline: none;
+        background-color: #1f2a44;
+        color: white;
+        transition: 0.3s;
+
+    }
+
+    label {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: large;
+        font-weight: 800
+    }
+
+    input:focus {
+        border-color: #2980b9;
+        box-shadow: 0 0 5px rgba(52, 152, 219, 0.8);
+    }
+
+    /* Estilizando o botão */
+    button {
+        background-color: #3498db;
+        color: white;
+        font-size: 16px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background-color: #1f6692;
+        transform: scale(1.08);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .comecar {
+        font-weight: 800;
+        background-color: rgb(66, 98, 136);
+    }
+</style>
+
+</html>

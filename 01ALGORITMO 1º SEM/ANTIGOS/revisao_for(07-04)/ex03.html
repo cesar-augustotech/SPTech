@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img style='height: 75px;' src="https://www.sptech.school/assets/images/logos/sptech_logo_1.png">
+            <h1 class="titulo">Revisão for - 03 - Algoritmos</h1>
+        </div>
+        <div class='header-right'>
+            <h3>desenvolvido por:</h3>
+            <div class="criador">
+              
+                <h2>César Augusto</h2>
+            </div>
+        </div>
+    </header>
+
+    <main class="exercicio">
+        <div class="ipts">
+           <label>Informe um número entre 10 e 500</label>
+           <br>
+           <input type="number" id="ipt_qtd">
+           <br>
+           <button class = 'comecar' onclick="comecar()">Somar Pares</button>
+
+
+
+        </div>
+        <div class="resultado" id="resultado"></div>
+
+    
+</main>
+</body>
+    <script>
+
+        function comecar(){
+
+            var valor = ipt_qtd.value;
+            var soma = 0;
+
+            if (valor < 10 || valor > 500){ alert('O número não corresponde aos requisitos'); return}
+
+            for (i = 0; i <= valor; i++){
+
+                if (i % 2 == 0){
+                    resultado.innerHTML += `${i}, `
+                    soma += i;
+                }
+
+            }
+            resultado.innerHTML += `Soma dos pares: ${soma}`
+
+        }
+
+    </script>

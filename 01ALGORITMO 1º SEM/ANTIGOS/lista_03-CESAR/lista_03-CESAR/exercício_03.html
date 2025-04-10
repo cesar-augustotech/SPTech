@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 03 - César</title>
+</head>
+<body>
+    <div id="numeros" style="background-color: aliceblue;align-self: center;display: flex;justify-content: center;align-items: center;flex-direction: column;">
+        <label for="x">Valor da passagem</label>
+        <input id="x" type="number">
+        <label for="y">Quantidade de viagens</label>
+        <input id="y" type="number">
+ 
+    </div>
+
+
+    <div style="background-color: darkgrey; align-items: center; display: flex; justify-content: center; align-content: stretch; flex-wrap: nowrap; flex-direction: column-reverse;">
+      <button onclick="function1()">Ver economia</button>
+    </div>
+
+    <script>
+        function function1(){
+            alert("Você economiza R$" + ( (Number(x.value) / 2) * Number(y.value) ) + "por mês")
+    
+        }
+    </script>
+</body>
+
+
+
+
+</html>

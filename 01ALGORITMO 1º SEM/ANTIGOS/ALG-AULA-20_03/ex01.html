@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exiba os números de 1 a 15 ao clicar no botão "Contar"</h1>
+    <button onclick="contar()">Contar</button>
+    <div id="resultado"></div>
+
+</body>
+<script>
+    function contar(){
+    var i = 0;
+    while (i<=15){
+        resultado.innerHTML += `${i}<br>`
+        i ++;
+
+    }
+}
+</script>
+</html>

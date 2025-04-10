@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Coca-Cola</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            padding: 40px;
+            background-color: #f4f4f9;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        .output {
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .garrafa {
+            width: 100px;
+            height: 200px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 20px;
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 2em;
+            box-shadow:  10px 5px 5px 5px #646464;
+        }
+        input {
+            font-size: 1.5em;
+            padding: 10px;
+        }
+        button {
+            font-size: 1.5em;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quantas Coca-Colas você já bebeu?</h1>
+    <label for="ipt_qtd">Informe a quantidade:</label><br>
+    <input type="number" id="ipt_qtd" min="1" placeholder="Digite a quantidade"><br><br>
+    <button onclick="mostrarGarrafinhas()">Ver a quantidade</button>
+    <div class="output" id="saida"></div>
+
+    <script>
+        function mostrarGarrafinhas() {
+            var quantidade = document.getElementById("ipt_qtd").value;
+            var saida = document.getElementById("saida");
+            saida.innerHTML = "";
+            for (var i = 0; i < quantidade; i++) {
+                var garrafa = document.createElement("div");
+                garrafa.className = "garrafa";
+                garrafa.innerHTML = "🥤";
+                saida.appendChild(garrafa);
+            }
+        }
+    </script>
+</body>
+</html>

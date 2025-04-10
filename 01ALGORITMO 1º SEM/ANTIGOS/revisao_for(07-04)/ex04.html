@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+
+    
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img style='height: 75px;' src="https://www.sptech.school/assets/images/logos/sptech_logo_1.png">
+            <h1 class="titulo">Revisão for - 04 - Algoritmos</h1>
+        </div>
+        <div class='header-right'>
+            <h3>desenvolvido por:</h3>
+            <div class="criador">
+              
+                <h2>César Augusto</h2>
+            </div>
+        </div>
+    </header>
+
+    <main class="exercicio">
+        <div class="ipts">
+           <label>Limite da contagem</label>
+           <br>
+           <input type="number" id="ipt_contador" min="0" >
+           <br>
+           <label>múltiplos de:</label>
+           <br>
+           <input type="number" id="ipt_qtd">
+           <br>
+           <button class = 'comecar' onclick="comecar()">Somar Números</button>
+
+
+
+        </div>
+        <div class="resultado" id="resultado"></div>
+
+    
+</main>
+</body>
+<script>
+    function comecar() {
+        var contador = Number(ipt_contador.value);
+        var valor = Number(ipt_qtd.value);
+        var soma = 0;
+        resultado.innerHTML = '';
+
+        if (contador <= 0) {
+            resultado.innerHTML = "O limite da contagem deve ser um número positivo.";
+            return;
+        }
+        if (valor < 1 || valor > contador) {
+            resultado.innerHTML = "O número de teste deve estar entre 1 e o limite da contagem.";
+            return;
+        }
+
+        for (var i = 1; i <= contador; i++) {
+            if (i % valor === 0) {
+                resultado.innerHTML += `${i}, `;
+                soma += i;
+            }
+        }
+
+        resultado.innerHTML += `<br>Soma dos múltiplos: ${soma}`;
+    }
+</script>
+</html>

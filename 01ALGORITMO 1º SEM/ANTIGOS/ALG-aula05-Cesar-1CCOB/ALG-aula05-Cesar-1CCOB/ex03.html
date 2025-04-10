@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. Média Escolar de Paty</title>
+</head>
+<body>
+    <!-- 3. Média Escolar de Paty
+Paty é muito estudiosa e sua meta é sempre ser uma aluna fora de série. Na faculdade onde estuda, os "fora de série" são os alunos com média acima de 9,4. Portanto, para ajudá-la, crie um programa o qual:  
+
+a) Pergunte o valor de 3 notas  
+
+b) Ao clicar num botão "Analisar desempenho", calcule a média entre as notas e exiba na tela a frase 
+"Sua média foi de X", onde X é a média calculada  
+
+c) Somente caso a média for acima de 9,4 exibir também a frase "Parabéns, você é fora de série!"  
+
+-->
+<h1>Média Escolar de Paty</h1>
+
+<label for="nota1">1° nota</label>
+<input id="nota1" type="number">
+<label for="nota2">2° nota</label>
+<input id="nota2" type="number">
+<label for="nota3">3° nota</label>
+<input id="nota3" type="number">
+<button id="but" onclick="analise()">Analisar desempenho</button>
+    <h3 id="notaTotal"></h3>
+    <h3 id="notaAlta"></h3>
+</body>
+
+<script>
+    function analise(){
+        media = ((Number(nota1.value) + Number(nota2.value) + Number(nota3.value)) / 3)
+        
+        notaTotal.innerHTML = `Sua média foi de ${media}`
+        if(Number(media) > 9.4){
+            notaAlta.innerHTML = `Parabéns, você é fora de série!`
+        }else notaAlta.innerHTML = ``
+    }
+</script>
+</html>

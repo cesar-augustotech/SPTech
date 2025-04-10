@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+        }
+
+        :root {
+            --tamanho-header: 90px;
+            --tamanho-footer: 90px;
+            --tamanho-main: calc(100vh - var(--tamanho-header) - 2px);
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+          
+        }
+
+        /* INICIO HEADER */
+        header {
+            height: var(--tamanho-header);
+            background: #1B3A57;
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left {
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-right {
+            margin-right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .criador {
+            display: flex;
+            align-items: center;
+        }
+        /* FIM DA HEADER */
+
+        .exercicio {
+            
+            
+            background: linear-gradient(to bottom, #1B3A57, #5DA8C1);
+            min-height: var(--tamanho-main); 
+        }
+
+        .exercicio .ipts {
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 30px;
+            padding-right: 40px;
+            padding-bottom: 30px;
+            padding-left: 40px;
+            
+          
+            
+    padding: 20px;
+    border-radius: 10px;
+        }
+
+        .exercicio .resultado {
+            background: rgba(44, 62, 80, 0.9);
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    width: 320px;
+    margin: 30px auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+        }
+
+        /* Estilizando o input */
+input {
+    width: 60px;
+    padding: 6px;
+    font-size: 18px;
+    text-align: center;
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    outline: none;
+    background-color: white;
+    color: #2c3e50;
+    transition: 0.3s;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input:focus {
+    border-color: #2980b9;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.8);
+}
+
+/* Estilizando o botão */
+button {
+    background-color: #3498db;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #1f6692;
+    transform: scale(1.08);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img style='height: 75px;' src="https://www.sptech.school/assets/images/logos/sptech_logo_1.png">
+            <h1 class="titulo">Playlist Interativa - Algoritmos</h1>
+        </div>
+        <div class='header-right'>
+            <h3>desenvolvido por:</h3>
+            <div class="criador">
+                <img style="height: 70px ; border:3px solid #FFFFFF"
+                    src="https://cdn.discordapp.com/attachments/877175453859840080/1357160786040066158/image.png?ex=67ef31fa&is=67ede07a&hm=ce418efa6c64522fb67cb7544cee37db44e3ec9ae698d521187f6ed0db690f77&">
+                <h2>César Augusto</h2>
+            </div>
+        </div>
+    </header>
+
+    <main class="exercicio">
+        <div class="ipts">
+           <label style="color: rgba(255, 255, 255, 0.9);; font-size: large;font-weight: 800">Quantas músicas você gostaria de ouvir?</label>
+           <br>
+           <input style="width: 80px; color:white; background-color: #1f2a44;" type="number" id="ipt_qtd">
+           <br>
+           <button style='font-weight: 800; background-color: rgb(66, 98, 136);'onclick="comecar()">Começar o Show</button>
+
+
+
+        </div>
+        <div class="resultado" id="resultado">
+
+
+        </div>
+
+
+        
+    </main>
+    
+
+</body>
+<script>
+        
+        function comecar() {
+            var qtdMusicas = Number(ipt_qtd.value);
+            var musicasTotal = 0;
+            var musicasAprovadas = 0;
+            var musicasReprovadas = 0;
+            var ultimaMusicaTocada = "";
+
+            //VERIFICAÇÃO INICIAL DA QTD DE MUSICAS
+            if (!qtdMusicas || qtdMusicas < 1) {
+                alert('Por favor, insira uma quantidade válida de músicas.');
+                return;
+            }
+            //LOOP DE REPETIÇÃO PARA CADA MÚSICA REPRODUZIDA
+            for (var i = 1; i <= qtdMusicas; i++) {
+                var nomeMusica = prompt(`Digite o nome da ${i}ª música:`);
+                //VERIFICAR SE A MÚSICA NÃO É REPETIDA
+                while (ultimaMusicaTocada === nomeMusica){
+                   nomeMusica = prompt("Essa música acabou de tocar, escolha outra:")
+                  
+                } 
+                 //REPRODUZIR
+                 alert(`Tocando ${i}ª música: ${nomeMusica}`);
+                 //DEFINIR ULTIMA MUSICA
+                 ultimaMusicaTocada = nomeMusica;
+                 //PEDIR AVALIAÇÃO DA MÚSICA
+                 var avaliacao = prompt(`Você gostou da música "${nomeMusica}"? (S/N)`).toLowerCase();
+
+                    if (avaliacao === 's') {
+                    musicasAprovadas++;
+                } else if (avaliacao === 'n') {
+                    musicasReprovadas++;
+                }
+                musicasTotal++;
+            }
+
+            // Exibe o resumo final
+            resultado.innerHTML = `
+                <h2>Resumo Final</h2>
+                <p>Total de músicas tocadas: ${musicasTotal}</p>
+                <p>Total de músicas aprovadas: ${musicasAprovadas}</p>
+                <p>Total de músicas reprovadas: ${musicasReprovadas}</p>
+            `;
+        }
+
+</script>
+
+</html>
