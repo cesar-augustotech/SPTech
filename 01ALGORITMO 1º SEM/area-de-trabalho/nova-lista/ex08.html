@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+
+    
+</head>
+
+    <!-- 8. Crie um programa o qual:  
+a) O usuário cadastre nomes de alunos;  
+
+b) Porém, na medida que vai cadastrando, aparecem um abaixo do outro na ordem inversa em que foram cadastrados (ou seja, o último sempre fica no topo, o penúltimo em abaixo dele e assim por diante).  -->
+
+<body>
+    <header>
+        <div class="header-left">
+            <img style='height: 75px;' src="https://www.sptech.school/assets/images/logos/sptech_logo_1.png">
+            <h1 class="titulo">Lista 13 - Exxercício 08 </h1>
+        </div>
+        <div class='header-right'>
+            <h3>desenvolvido por:</h3>
+            <div class="criador">
+              
+                <h2>César Augusto</h2>
+            </div>
+        </div>
+    </header>
+
+    <main class="exercicio">
+        <div class="ipts">
+           <label>TEXTO MODELO</label>
+           <br>
+           <input type="text" id="ipt_nome">
+           <br>
+           <button class = 'comecar' onclick="comecar()">Inserir Aluno</button>
+
+
+
+        </div>
+        <div class="resultado" id="resultado"></div>
+
+    
+</main>
+</body>
+    <script>
+        let alunos = [];
+        
+        function comecar(){
+            let html = '';
+            let nome = ipt_nome.value;
+            alunos.push(nome);
+            
+            for (let i = alunos.length; i > 0; i--){
+
+                html += `${i}° Aluno: ${alunos[i-1]}<br>`;
+            }
+
+            resultado.innerHTML = html
+
+           
+
+        }
+
+    </script>

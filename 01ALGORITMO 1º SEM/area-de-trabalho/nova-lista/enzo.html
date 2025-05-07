@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Registre os nomes das linhas de Ônibus</h1>
+    <input id="ipt_linha"> <br>
+    <button onclick="gravar()">Gravar Busão</button> <br>
+
+    <h1>Escreva aqui qual linha você quer pesquisar.</h1> <br>
+    <input id="ipt_pesquisa">
+    <button onclick="pesquisar()">Pesquisar</button> <br>
+
+    <div id="result"></div> 
+ 
+
+</body>
+<script>
+
+    var onibus = []
+    
+    
+    function gravar() 
+    {
+        var resultado = `` 
+        var linhaDig = ipt_linha.value
+        onibus.push(linhaDig)
+
+        for(var i = onibus.length - 1; i >= 0; i--){
+         resultado += `${onibus[i]} <br>`
+        }
+        result.innerHTML = resultado
+    }
+   
+    function pesquisar() 
+    {
+        var resultado = ``
+        var resultadoNegativo = ``
+        var linhaDig = ipt_linha.value
+        var pesquisa = ipt_pesquisa.value
+        var passou = 0
+
+        var ordem = []
+
+        for(var i = onibus.length; i > 0; i--){
+            if(pesquisa == onibus[i - 1]){
+                passou++
+                ordem.push(i)
+                resultado = `Você já pegou essa linha ${passou} vezes, ${ordem} `
+                
+            } else{
+            
+            resultadoNegativo += 'Você nunca pegou essa linha'
+            }
+            
+           
+
+          
+            
+        }
+          
+            
+        result.innerHTML = resultadoNegativo
+        result.innerHTML = resultado
+    }
+
+
+
+
+</script>
+
+</html>

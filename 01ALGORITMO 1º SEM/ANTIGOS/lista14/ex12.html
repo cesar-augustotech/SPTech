@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img style='height: 75px; background-color: aliceblue;' src="https://sptech.school/wp-content/uploads/2025/02/sptech_principal.png">
+            <h1 class="titulo">Lista 13 - Exercício 12</h1>
+        </div>
+        <div class='header-right'>
+            <h3>desenvolvido por:</h3>
+            <div class="criador">
+                <h2>César Augusto</h2>
+            </div>
+        </div>
+    </header>
+
+    <main class="exercicio">
+        <div class="ipts">
+            <label>Nome do filho</label>
+            <br>
+            <input type="text" id="ipt_qtd">
+            <br>
+            <button class='comecar' onclick="comecar()">Cadastrar</button><br>
+            <button class='comecar' onclick="atualizar()">Atualizar Família</button>
+        </div>
+        <div class="resultado" id="resultado"></div>
+    </main>
+</body>
+
+<script>
+    var filhos = [];
+
+    function comecar() {
+        let nome = ipt_qtd.value.trim();
+
+        if (nome == "") return;
+
+        if (filhos.includes(nome)) {
+            alert("Não pode mais de 1 filho com o mesmo nome!");
+        } else {
+            filhos.push(nome);
+        }
+
+        ipt_qtd.value = "";
+    }
+
+    function atualizar() {
+        let qtd = filhos.length;
+        let custoParticular = qtd * 3000;
+        let custoPublica = qtd * 1500;
+
+        let texto = `Você tem ${qtd} filhos<br><br>`;
+        texto += `Seu custo mensal será aproximadamente R$${custoParticular} se colocá-los em escola particular<br>`;
+        texto += `ou R$${custoPublica} se eles estudarem em escola pública`;
+
+        resultado.innerHTML = texto;
+    }
+</script>
+
+</html>

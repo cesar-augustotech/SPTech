@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img style='height: 75px; background-color: aliceblue;' src="https://sptech.school/wp-content/uploads/2025/02/sptech_principal.png">
+            <h1 class="titulo">Lista 13 - Exercício 11</h1>
+        </div>
+        <div class='header-right'>
+            <h3>desenvolvido por:</h3>
+            <div class="criador">
+                <h2>César Augusto</h2>
+            </div>
+        </div>
+    </header>
+
+    <main class="exercicio">
+        <div class="ipts">
+            <label>Preço do produto</label>
+            <br>
+            <input type="number" id="ipt_qtd">
+            <br>
+            <button class='comecar' onclick="comecar()">Cadastrar</button> <br>
+            <button class='comecar' onclick="atualizar()">Atualizar Estoque</button>
+        </div>
+        <div class="resultado" id="resultado"></div>
+    </main>
+</body>
+
+<script>
+    var precos = [];
+
+    function comecar() {
+        let preco = Number(ipt_qtd.value);
+        if (preco > 0) {
+            precos.push(preco);
+            ipt_qtd.value = "";
+        }
+    }
+
+    function atualizar() {
+        let mensagem = "";
+        let total = 0;
+
+        for (let i = precos.length - 1; i >= 0; i--) {
+            mensagem += `R$${precos[i].toFixed(2)}<br>`;
+            total += precos[i];
+        }
+
+        mensagem += `<br>Você tem ${precos.length} produtos cadastrados em estoque<br>`;
+        mensagem += `Seu estoque vale R$${total.toFixed(2)}`;
+
+        resultado.innerHTML = mensagem;
+    }
+</script>
+
+</html>

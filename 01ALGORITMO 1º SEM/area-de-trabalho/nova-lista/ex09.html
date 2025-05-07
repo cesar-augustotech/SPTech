@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+
+    
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img style='height: 75px;' src="https://www.sptech.school/assets/images/logos/sptech_logo_1.png">
+            <h1 class="titulo">Lista 13 - Exercício 09</h1>
+        </div>
+        <div class='header-right'>
+            <h3>desenvolvido por:</h3>
+            <div class="criador">
+              
+                <h2>César Augusto</h2>
+            </div>
+        </div>
+    </header>
+
+    <main class="exercicio">
+        <div class="ipts">
+           <label>Cite todos seus projetos</label>
+           <br>
+           <input type="text" id="ipt_projeto">
+           <br>
+           <button class = 'comecar' onclick="comecar()">Registrar seu projeto</button>
+           <button class = 'comecar' onclick="mostrar()">Listar projetos</button>
+            
+
+
+        </div>
+        <div class="resultado" id="resultado"></div>
+
+    
+</main>
+</body>
+    <script>
+        let projetos = [];
+
+        function comecar(){
+            let projetoNome = ipt_projeto.value;
+            let exp = '';
+            projetos.push(projetoNome)
+
+            projetos.length <= 4 ? exp = 'Júnior' : projetos.length <= 12 ? exp = 'Pleno' : exp = 'Sênior';
+
+            resultado.innerHTML = `VocÊ já fez ${projetos.length}. Por isso você é um profissional ${exp}`;
+        }
+        function mostrar(){
+            resultado.innerHTML = ''
+            for(i = projetos.length; i > 0; i--){
+                resultado.innerHTML += `${i}° Projeto: ${projetos[i-1]}<br>`
+            }
+        }
+
+    </script>

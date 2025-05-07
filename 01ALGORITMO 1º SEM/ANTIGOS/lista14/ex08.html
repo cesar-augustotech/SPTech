@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="../style.css">
 
     
 </head>
@@ -14,7 +14,7 @@
     <header>
         <div class="header-left">
             <img style='height: 75px; background-color: aliceblue;' src="https://sptech.school/wp-content/uploads/2025/02/sptech_principal.png">
-            <h1 class="titulo">MODELO - Algoritmos</h1>
+            <h1 class="titulo">Lista 13 - Exercício 8</h1>
         </div>
         <div class='header-right'>
             <h3>desenvolvido por:</h3>
@@ -27,11 +27,11 @@
 
     <main class="exercicio">
         <div class="ipts">
-           <label>TEXTO MODELO</label>
+           <label>Cadastrar usuários</label>
            <br>
-           <input type="number" id="ipt_qtd">
+           <input type="text" id="ipt_nome">
            <br>
-           <button class = 'comecar' onclick="comecar()">BOTÃO MODELO</button>
+           <button class = 'comecar' onclick="comecar()">CADASTRAR</button>
 
 
 
@@ -42,11 +42,21 @@
 </main>
 </body>
     <script>
-
+        let alunos = []
         function comecar(){
 
-            var valor = ipt_qtd.value;
+            var nome = ipt_nome.value;
+            var lista = ''
+            alunos.push(nome)
+            
+            for (let i = alunos.length; i > 0; i--){
+                lista += `${alunos[i-1]}<br>`
 
+            }
+            
+            resultado.innerHTML = lista;
+           
+           console.log(alunos,resultado.innerHTML)
         }
 
     </script>

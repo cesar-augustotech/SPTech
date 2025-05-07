@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+
+    
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img style='height: 75px; background-color: aliceblue;' src="https://sptech.school/wp-content/uploads/2025/02/sptech_principal.png">
+            <h1 class="titulo">Lista 13 - Exercício 10 </h1>
+        </div>
+        <div class='header-right'>
+            <h3>desenvolvido por:</h3>
+            <div class="criador">
+              
+                <h2>César Augusto</h2>
+            </div>
+        </div>
+    </header>
+
+    <main class="exercicio">
+        <div class="ipts">
+           <label>Registrar Linhas</label>
+           <br>
+           <input type="text" id="ipt_linha">
+           <br>
+           <button class = 'comecar' onclick="gravar()">Registrar Linha</button><br>
+           <label>Exibir Linhas</label> <br>
+           <input type="text" id="ipt_pesquisa"><br>
+           <button class = 'comecar' onclick="pesquisar()">Exibir Linhas</button>
+
+
+
+        </div>
+        <div class="resultado" id="resultado"></div>
+
+</body>
+<script>
+    var onibus = []
+    
+    function gravar(){
+        let mensagem = `` 
+        let linha = ipt_linha.value
+        onibus.push(linha)
+
+        for(var i = onibus.length - 1; i >= 0; i--){
+            mensagem += `${onibus[i]} <br>`
+        }
+        resultado.innerHTML = mensagem
+    }
+    function pesquisar() {
+        let pesquisa = ipt_pesquisa.value.trim()
+        let indices = [];
+
+        for (let i = 0; i < onibus.length; i++) {
+            if (onibus[i] == pesquisa) {
+                indices.push(i + 1) 
+            }
+        }
+
+        let mensagem = ""
+        if (indices.length == 0) {
+            mensagem = "Você nunca pegou essa linha."
+        } else {
+            mensagem = `Você já pegou essa linha ${indices.length} vezes, nessa ordem: ${indices}`
+        }
+
+        resultado.innerHTML += `<br><strong>${mensagem}</strong>`
+    }
+
+</script>
+
+</html>

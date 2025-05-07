@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+  <header>
+    <div class="header-left">
+      <img style="height: 75px; background-color: aliceblue"
+        src="https://sptech.school/wp-content/uploads/2025/02/sptech_principal.png" />
+      <h1 class="titulo">Lista 13 - Exercício 16</h1>
+    </div>
+    <div class="header-right">
+      <h3>desenvolvido por:</h3>
+      <div class="criador">
+        <h2>César Augusto</h2>
+      </div>
+    </div>
+  </header>
+
+  <main class="exercicio">
+    <div class="ipts">
+      <label>Nome do produto</label><br />
+      <input type="text" id="ipt_nome" /><br />
+      <label>Preço de compra</label><br />
+      <input type="number" id="ipt_qtd" /><br />
+      <button class="comecar" onclick="cadastrar()">Cadastrar</button>
+      <button class="comecar" onclick="relatorio()">Relatório de estoque</button>
+    </div>
+    <div class="resultado" id="resultado"></div>
+  </main>
+</body>
+
+<script>
+  let nomes = [];
+  let precos = [];
+
+  function cadastrar() {
+    let nome = ipt_nome.value;
+    let preco = Number(ipt_qtd.value);
+    nomes.push(nome);
+    precos.push(preco);
+  }
+
+  function relatorio() {
+    let resposta = `Total de produtos: ${nomes.length}<br><br>`;
+    let soma = 0;
+    let somaVenda = 0;
+    let maisCaro = precos[0];
+    let maisBarato = precos[0];
+    let nomeMaisCaro = nomes[0];
+    let nomeMaisBarato = nomes[0];
+
+    for (let i = 0; i < nomes.length; i++) {
+      let precoCompra = precos[i].toFixed(2);
+      let precoVenda = (precos[i] * 1.25).toFixed(2);
+      resposta += `Produto ${i + 1}: ${nomes[i]}<br>`;
+      resposta += `Preço de compra: R$${precoCompra}. Vender por R$${precoVenda}<br><br>`;
+
+      soma += precos[i];
+      somaVenda += precos[i] * 1.25;
+
+      if (precos[i] > maisCaro) {
+        maisCaro = precos[i];
+        nomeMaisCaro = nomes[i];
+      }
+
+      if (precos[i] < maisBarato) {
+        maisBarato = precos[i];
+        nomeMaisBarato = nomes[i];
+      }
+    }
+
+    let mediaVenda = somaVenda / nomes.length;
+
+    resposta += `<strong>Produto mais caro:</strong> ${nomeMaisCaro}<br>`;
+    resposta += `<strong>Produto mais barato:</strong> ${nomeMaisBarato}<br>`;
+    resposta += `<strong>Soma dos preços de compra:</strong> R$${soma.toFixed(2)}<br>`;
+    resposta += `<strong>Média dos preços de venda:</strong> R$${mediaVenda.toFixed(2)}<br>`;
+
+    resultado.innerHTML = resposta;
+  }
+</script>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+  <header>
+    <div class="header-left">
+      <img style="height: 75px; background-color: aliceblue"
+        src="https://sptech.school/wp-content/uploads/2025/02/sptech_principal.png" />
+      <h1 class="titulo">Lista 13 - Exercício 13</h1>
+    </div>
+    <div class="header-right">
+      <h3>desenvolvido por:</h3>
+      <div class="criador">
+        <h2>César Augusto</h2>
+      </div>
+    </div>
+  </header>
+
+  <main class="exercicio">
+    <div class="ipts">
+      <label>Indique o resultado</label><br />
+      <select id="ipt_qtd">
+        <option>Vitória</option>
+        <option>Empate</option>
+        <option>Derrota</option>
+      </select><br />
+      <button class="comecar" onclick="comecar()">Registrar jogo</button>
+      <br><br>
+      <label>Indique qual jogo deseja saber o resultado</label><br />
+      <input type="number" id="ipt_jogo" oninput="verificarJogo()" /><br />
+    </div>
+    <div class="resultado" id="resultado"></div>
+  </main>
+</body>
+
+<script>
+  let jogos = [];
+
+  function comecar() {
+    let resultado = ipt_qtd.value;
+    jogos.push(resultado);
+    atualizarResumo();
+  }
+
+  function atualizarResumo() {
+    let vitorias = 0, empates = 0, derrotas = 0;
+
+    for (let i = 0; i < jogos.length; i++) {
+      if (jogos[i] === "Vitória") {
+        vitorias++;
+      } else if (jogos[i] === "Empate") {
+        empates++;
+      } else if (jogos[i] === "Derrota") {
+        derrotas++;
+      }
+    }
+
+    let pontos = vitorias * 3 + empates * 1;
+    let maxPontos = jogos.length * 3;
+    let aproveitamento = ((pontos / maxPontos) * 100).toFixed(2);
+
+    resultado.innerHTML =
+      `O time teve: ${vitorias} vitórias, ${empates} empates, ${derrotas} derrotas<br><br>` +
+      `Pontuação total: ${pontos} pontos<br>` +
+      `Aproveitamento: ${aproveitamento}%<br><br>`;
+  }
+
+  function verificarJogo() {
+    let numero = Number(ipt_jogo.value);
+
+    if (numero < 1 || numero > jogos.length) {
+      resultado.innerHTML += `Não foi cadastrado um ${numero}º jogo<br>`;
+    } else {
+      let resultadoJogo = jogos[numero - 1];
+      let verbo = resultadoJogo === "Vitória" ? "Ganhou" :
+        resultadoJogo === "Empate" ? "Empatou" : "Perdeu";
+
+      resultado.innerHTML += `No ${numero}º jogo, o time ${verbo}<br>`;
+    }
+  }
+</script>
+
+</html>
+
