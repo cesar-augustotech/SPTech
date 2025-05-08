@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+
+
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img style='height: 75px; background-color: aliceblue;'
+                src="https://sptech.school/wp-content/uploads/2025/02/sptech_principal.png">
+            <h1 class="titulo">Lista 13 - Exercício </h1>
+        </div>
+        <div class='header-right'>
+            <h3>desenvolvido por:</h3>
+            <div class="criador">
+
+                <h2>César Augusto</h2>
+            </div>
+        </div>
+    </header>
+
+    <main class="exercicio">
+        <div class="ipts">
+            <label>TEXTO MODELO</label>
+            <br>
+            <input type="text" id="ipt_nome" placeholder="nome do produto">
+            <br>
+            <input type="text" id="ipt_codigo" placeholder="código do produto">
+            <br>
+            <input type="number" id="ipt_qtd" placeholder="quatidade do produto">
+            <br>
+
+            <div class="botoes">
+            <button class='comecar' onclick="cadastrar()">CADASTRAR PRODUTO</button>
+            <button class='comecar' onclick="repor()">REPOR ESTOQUE</button>
+            <button class='comecar' onclick="vender()">VENDER PRODUTO</button>
+            <button class='comecar' onclick="relatorio()">EXIBIR RELATÓRIO</button>
+            </div>
+        </div>
+        <div class="resultado" id="resultado"></div>
+
+
+    </main>
+</body>
+<script>
+    let codigos = [], nomes = [], quantidades = [], vendidos = [];
+    let qtd, codigo, nome;
+   
+
+    function atualizar() {
+        qtd = Number(ipt_qtd.value);
+        codigo = ipt_codigo.value;
+        nome = ipt_nome.value;
+    }
+
+    function cadastrar() {
+        atualizar()
+        if(qtd >= 10){
+        if (nome !== "" && codigo !== "" ) {
+            let existe = false;
+            for (let i = 0; i < codigos.length; i++) {
+                if (codigos[i] === codigo) {
+                    existe = true;
+                    break;
+                }
+            }
+
+            if (existe) {
+                resultado.innerHTML = "Código de produto já existente";
+            } else {
+                codigos.push(codigo);
+                nomes.push(nome);
+                quantidades.push(qtd);
+                vendidos.push(0);
+                resultado.innerHTML = `Produto ${nome} registrado com sucesso`;
+            }
+        } else {
+            resultado.innerHTML = "Preencha todos os campos para registrar um novo produto";
+        }
+    } else {
+        resultado.innerHTML = "Quantidade inválida";
+    }
+}
+
+    function repor(){
+        atualizar()
+
+        let existe = false;
+        if (nome !== "" && codigo !== "" && qtd > 0) {
+            for (let i = 0; i < codigos.length; i++) {
+                if (codigos[i] === codigo && nomes[i] === nome) {
+                    quantidades[i] += qtd;
+                    existe = true;
+                    resultado.innerHTML = `${qtd}x do ${nome} foi reposto com sucesso`;
+                    resultado.innerHTML += `Registro ${i + 1} - Código: ${codigos[i]} | Produto: ${nomes[i]} | Quantidade em Estoque: ${quantidades[i]} (${quantidades[i] < 10 ? "Precisa Repor" : "OK"})<br>`;
+                    break;
+                    
+                }
+            }
+
+            if (!existe) {
+                resultado.innerHTML = `Produto não identificado`;
+            } 
+        } else {
+            resultado.innerHTML = "Preencha todos os campos para repor um produto";
+        }
+    }
+
+    function vender(){
+        atualizar()
+
+        if (qtd > 0) {
+        for (let i = 0; i < codigos.length; i++) {
+          if (codigos[i] === codigo && nomes[i] === nome) {
+            encontrado = true;
+            if (quantidades[i] >= qtd) {
+              quantidades[i] -= qtd;
+              vendidos[i] += qtd;
+              resultado.innerHTML = `${qtd}x do ${nome} foi vendido com sucesso`;
+              if (quantidades[i] < 10) {
+                resultado.innerHTML += `<br>>ALERTA: ${nome} está abaixo do estoque mínimo!`;
+              }
+              resultado.innerHTML += `<br>Registro ${i + 1} - Código: ${codigos[i]} | Produto: ${nomes[i]} | Quantidade em Estoque: ${quantidades[i]} (${quantidades[i] < 10 ? "Precisa Repor" : "OK"})<br>`;
+            } else {
+              resultado.innerHTML = "Quantidade inválida";
+            }
+            break;
+          }
+        }
+        if (!encontrado) {
+          resultado.innerHTML = "Produto não identificado";
+        }
+      } else {
+        resultado.innerHTML = "Quantidade inválida";
+      }
+    }
+
+    function relatorio() {
+      let texto = "";
+      let total = 0;
+      let maiorQtd = -1, menorQtd = Infinity;
+      let maisVendido = -1, menosVendido = Infinity;
+      let prodMaior = "", prodMenor = "", prodMaisV = "", prodMenosV = "";
+
+      for (let i = 0; i < codigos.length; i++) {
+        texto += `Registro ${i + 1} - Código: ${codigos[i]} | Produto: ${nomes[i]} | Quantidade em Estoque: ${quantidades[i]} (${quantidades[i] < 10 ? "Precisa Repor" : "OK"})<br>`;
+        total += quantidades[i];
+
+        if (quantidades[i] > maiorQtd) {
+          maiorQtd = quantidades[i];
+          prodMaior = nomes[i];
+        }
+
+        if (quantidades[i] < menorQtd) {
+          menorQtd = quantidades[i];
+          prodMenor = nomes[i];
+        }
+
+        if (vendidos[i] > maisVendido) {
+          maisVendido = vendidos[i];
+          prodMaisV = nomes[i];
+        }
+
+        if (vendidos[i] < menosVendido) {
+          menosVendido = vendidos[i];
+          prodMenosV = nomes[i];
+        }
+      }
+
+      texto += `Seu estoque tem ${codigos.length} produtos registrados.<br>`;
+      texto += `Produto com maior quantidade: ${prodMaior} (${maiorQtd})<br>`;
+      texto += `Produto com menor quantidade: ${prodMenor} (${menorQtd})<br>`;
+      texto += `Produto mais vendido: ${prodMaisV} (${maisVendido})<br>`;
+      texto += `Produto menos vendido: ${prodMenosV} (${menosVendido})<br>`;
+
+      resultado.innerHTML = texto;
+    }
+
+    
+
+</script>
