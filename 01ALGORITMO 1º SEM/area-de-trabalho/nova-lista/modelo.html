@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+
+
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <img style='height: 75px;' src="https://sptech.school/wp-content/uploads/2025/02/sptech_principal.png">
+            <h1 class="titulo">Desafio Vetor - One Piece</h1>
+        </div>
+        <div class='header-right'>
+            <h3>desenvolvido por:</h3>
+            <div class="criador">
+
+                <h2>César Augusto & </h2>
+                <h2> Dereck Baksa</h2>
+            </div>
+        </div>
+    </header>
+
+    <main class="exercicio">
+        <div class="ipts">
+            <div class="grid-container">
+                <h1>C - Create</h1>
+                <br>
+                <label>Cadastrar Estoque de Comidas</label>
+                <input type="text" id="ipt_comida">
+                <br>
+                <button class='comecar' onclick="cadastrar()">CADASTRAR</button>
+            </div>
+            <div class="grid-container">
+                <h1>R - Read</h1>
+                <label>Pesquisar no Estoque de Comidas</label>
+                <input type="text" id="ipt_pesquisa">
+                <button class='comecar' onclick="pesquisar()">PESQUISAR</button>
+
+                <br>
+                <button class='comecar' onclick="verificar()">VERIFICAR QUANTIDADE</button>
+                <button class='comecar' onclick="exibirEstoque()">EXIBIR ESTOQUE</button>
+            </div>
+
+            <div class="grid-container">
+                <h1>U - Update</h1>
+                <label>Alterar - Nome Atual</label>
+                <input type="text" id="ipt_atual">
+
+                <label>Alterar - Nome Novo</label>
+                <input type="text" id="ipt_novo">
+
+                <button class='comecar' onclick="alterar()">ALTERAR NOME</button>
+            </div>
+
+            <div class="grid-container">
+                <h1>D - Delete</h1>
+                <label>Remover comida do Estoque</label>
+                <input type="text" id="ipt_delete">
+
+                <button class='comecar' onclick="remover()">REMOVER COMIDA</button>
+
+            </div>
+
+        </div>
+        <div class="resultado"><h1> RESULTADO</h1><br><div id="resultado"></div></div>
+
+
+    </main>
+</body>
+<script>
+
+    let comida, nomeAtual, nomeNovo;
+    let listaComidas = [];
+    let tamanhoListaComidas = 0;
+
+    function atualizar() {
+        comida = ipt_comida.value;
+        pesquisa = ipt_pesquisa.value;
+        tamanhoListaComidas = listaComidas.length;
+        nomeAtual = ipt_atual.value;
+        nomeNovo = ipt_novo.value;
+        nomeDel = ipt_delete.value;
+
+    }
+
+    function cadastrar() {
+        atualizar()
+
+        console.log(comida);
+        listaComidas.push(comida);
+
+        console.log(listaComidas);
+    }
+
+    function verificar() {
+        atualizar()
+
+
+        let texto = ''
+
+        tamanhoListaComidas < 3 ? texto = 'Desse jeito, o Luffy devora até o navio' : tamanhoListaComidas <= 7 ? texto = 'O comilão do Luffy não vai deixar sobrar nenhuma comida' :
+            tamanhoListaComidas <= 10 ? texto = "Assim, talvez sobre um pouco para a tripulação" : texto = "Desse jeito vai ter comida para todo mundo e ainda consigo guardar um pouco para a senhorita Nami!"
+
+        resultado.innerHTML = texto;
+    }
+
+    function pesquisar() {
+        atualizar()
+        let existe = false;
+        let contador = 0;
+
+        for (let i = 0; i <= tamanhoListaComidas; i++) {
+            if (listaComidas[i] == pesquisa) {
+                contador++;
+                existe = true;
+            }
+        }
+        if (existe) {
+            resultado.innerHTML = `Temos a comida: ${pesquisa} e há ${contador} unidade(s) dela.`
+        } else resultado.innerHTML = `Álguem vai ter que comprar ${pesquisa}, tá fazendo falta.`
+
+    }
+
+    function exibirEstoque() {
+        atualizar()
+
+        let relatorio = listaComidas.slice();
+        console.log(listaComidas, relatorio)
+        let textos = [];
+
+        while (relatorio.length > 0) {
+            let contador = 0;
+            let posicao = relatorio[0];
+            for (let i = relatorio.length - 1; i >= 0; i--) {
+                if (relatorio[i] == posicao) {
+                    relatorio.splice(i, 1);
+                    contador++
+
+                }
+            }
+            textos.push(`-${posicao} (${contador} unidade(s))`)
+
+        }
+        console.log(textos)
+        resultado.innerHTML = textos.join('<br>');
+    }
+
+    function alterar() {
+        atualizar()
+
+        let existe = false;
+
+        for (let i = listaComidas.length - 1; i >= 0; i--) {
+            if (listaComidas[i] == nomeAtual) {
+                listaComidas.splice(i, 1, nomeNovo)
+                existe = true;
+            }
+        }
+
+        existe ? resultado.innerHTML = `A comida ${nomeAtual} foi alterada para ${nomeNovo}` : resultado.innerHTML = `A comida ${nomeAtual} não foi encontrada no estoque.`
+
+
+    }
+
+    function remover() {
+        atualizar()
+
+        let existe = false;
+
+        for (let i = listaComidas.length - 1; i >= 0; i--) {
+            if (listaComidas[i] == nomeDel) {
+                listaComidas.splice(i, 1)
+                existe = true;
+            }
+        }
+
+        existe ? resultado.innerHTML = `A comida ${nomeDel} foi removida do estoque.` : resultado.innerHTML = `A comida ${nomeDel} não está no estoque.`
+
+
+    }
+
+</script>
