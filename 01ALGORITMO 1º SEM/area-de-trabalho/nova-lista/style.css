@@ -54,18 +54,25 @@ box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 /* FIM DA HEADER */
 
 .exercicio {
-    
-    
     background: linear-gradient(to bottom, #1B3A57, #5DA8C1);
     min-height: var(--tamanho-main); 
 }
 
-.exercicio .ipts {
-    background: linear-gradient(to bottom, #1B3A57, #5DA8C1);
+.questao{
     display: grid;
-    gap:5px;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    justify-content: end;
+    justify-items: center;
+    gap: 10px;
+}
+
+.exercicio .ipts {
+    
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding-top: 30px;
     padding-right: 40px;
     padding-bottom: 30px;
@@ -136,20 +143,31 @@ box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 font-weight: 800; 
 background-color: rgb(66, 98, 136);
 }
-
-.grid-container{
-
-    padding: 50px 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 300px;
-    background: linear-gradient(to bottom, #1B3A57, #46889e);
-
-}
 .letra-preta{
     color:black;
     font-weight: 800;
 
 }
+
+#crossword { 
+    display: grid; 
+    grid-template-columns: repeat(5, 40px); 
+    grid-gap: 5px; 
+    margin: 20px auto; 
+} 
+ 
+.cell { 
+    width: 40px; 
+    height: 40px; 
+    border: 1px solid #000; 
+    text-align: center; 
+    font-size: 24px; 
+} 
+ 
+.cell input { 
+    width: 100%; 
+    height: 100%; 
+    text-align: center; 
+    font-size: 24px; 
+    border: none; 
+} 
