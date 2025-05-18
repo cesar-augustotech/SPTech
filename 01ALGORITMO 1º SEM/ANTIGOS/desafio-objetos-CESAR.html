@@ -15,12 +15,14 @@
         }
 
         main {
+            margin-top: 5%;
             width: 75%;
-            height: 75%;
+            min-height: 75vh;
             background-color: white;
             border-radius: 25px;
             display: flex;
             flex-direction: column;
+            padding: 0 20px;
 
         }
 
@@ -51,7 +53,7 @@
         }
 
         button {
-            height: 30px;
+            height: 40px;
             margin-left: 50%;
             border: none;
             color: white;
@@ -64,27 +66,47 @@
             cursor: pointer;
         }
 
-        .div-alunos {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-        }
+    
+.div-alunos {
+    padding: 0 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-height: 50vh;     
+    overflow-y: auto;      
+    min-height: 50vh;
+}
 
-        .aluno {
-            background-color: rgba(217, 217, 217, 255);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-size: x-large;
-            width: 30%;
-            height: 30%;
-            gap: 3%;
+.aluno {
+    background-color: rgba(217, 217, 217, 255);
+    display: flex;
+    border-radius: 25px;
+    flex-direction: column;
+    align-items: center;
+    font-size: clamp(10px, 1.2vw, 16px);
+    height: 150px;
+    width: 90%;
+    min-width: 0;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    overflow: auto;             
+    overflow-wrap: break-word;   
+    word-break: break-word;      
+    text-align: center;
+    padding: 10px;
+    gap: 2px;
+    line-height: 1;              
+}
 
-        }
+.aluno h3{
+    margin-block-end: 0px;
+    margin-block-start: 0px;
+}
     </style>
 </head>
 
 <body>
     <main>
+        <h1 style="align-self: center; margin-bottom: -50px; font-family: Arial, Helvetica, sans-serif">CADASTRO DE ALUNOS</h1>
         <div class="cadastro">
             <div class="inputs">
                 <input type="text" id="ipt_ra">
@@ -92,12 +114,15 @@
                 <input type="number" id="ipt_nota">
 
                 <button onclick="cadastrar()">REGISTRAR</button>
-                <button onclick="atualizar()">Atualizar</button>
+                <button onclick="mostrarAprovados()" style="background-color: #0077cc;">MOSTRAR APROVADOS</button>
+              
             </div>
+
+            
         </div>
-        <div id="div_alunos">
-            <div class="aluno">Aluno: César</div>
-        </div>
+        <div class="div-alunos" id="div_alunos"></div>
+           
+        
 
 
     </main>
@@ -112,22 +137,35 @@
         console.log(divAlunos, alunos)
 
 
-    }
-    function atualizar() {
         div_alunos.innerHTML = ""
         alunos.forEach(a => {
-
+             console.log(a.ra, a.nome, a.nota)
             const card = document.createElement("div");
             card.classList.add("aluno")
             console.log(a.nome, a.nota)
-            card.textContent = a.nome;
-            card.textContent += a.nota;
+            card.innerHTML = `<h2>${a.nome}</h2>
+            <h3>RA:${a.ra}</h3>
+            <h3>Nota:${a.nota}</h3>`
             divAlunos.appendChild(card);
 
             console.log(card.classList)
         })
 
+
     }
+
+    function mostrarAprovados() {
+        divAlunos.innerHTML = "";
+        alunos.filter(a => a.nota > 6.0).forEach(a => {
+            const card = document.createElement("div");
+            card.classList.add("aluno");
+            card.innerHTML = `<h2>${a.nome}</h2>
+            <h3>RA:${a.ra}</h3>
+            <h3>Nota:${a.nota}</h3>`;
+            divAlunos.appendChild(card);
+        });
+    }
+   
 
 </script>
 
