@@ -58,6 +58,9 @@ box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     
     background: linear-gradient(to bottom, #1B3A57, #5DA8C1);
     min-height: var(--tamanho-main); 
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .exercicio .ipts {
@@ -86,6 +89,19 @@ width: 320px;
 margin: 30px auto;
 box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 font-weight: bold;
+}
+
+.questao{
+    
+    margin-top: 250px;
+    font-size: 14px;
+    color: white;
+    margin-bottom: 20px;
+    text-align: left;
+    font-weight: 800;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
 }
 
 /* Estilizando o input */
@@ -139,4 +155,25 @@ background-color: rgb(66, 98, 136);
     color:black;
     font-weight: 800;
 
+}
+
+/* Adicione ao seu style.css */
+.crossword-row {
+    display: flex;
+    justify-content: center;
+}
+
+.crossword-cell {
+    width: 32px;
+    height: 32px;
+    margin: 2px;
+    text-align: center;
+    font-size: 1.2em;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    background: #fff;
+    text-transform: uppercase;
+    transition: background 0.2s;
+    box-sizing: border-box;
+    padding-left: 14px; /* espaço para o número */
 }

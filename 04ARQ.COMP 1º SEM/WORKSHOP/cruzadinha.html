@@ -27,67 +27,36 @@
 
     <main class="exercicio">
         <div class="ipts">
-            <div class="questao">
-            <h4>Pergunta bem legal</h4><h4>Pergunta bem legal</h4>
-            <h4>Pergunta bem legal</h4><h4>Pergunta bem legal</h4>
-            <h4>Pergunta bem legal</h4><h4>Pergunta bem legal</h4>
-            <h4>Pergunta bem legal</h4><h4>Pergunta bem legal</h4>
-            <h4>Pergunta bem legal</h4><h4>Pergunta bem legal</h4>
-            <h4>Pergunta bem legal</h4><h4>Pergunta bem legal</h4>
-           </div>
-
-            <br>
-           <input type="number" id="ipt_qtd" oninput="inserir()">
-           <br>
-           <button class = 'comecar' onclick="comecar()">BOTÃO MODELO</button>
-
-
-
+            <h2>Instruções:</h2>
+            <p>Preencha a cruzadinha com as palavras relacionadas à Arquitetura Computacional. As dicas estão listadas abaixo.</p>
+            <p>As palavras podem ser inseridas na horizontal ou vertical, dependendo da posição indicada.</p>
+            <p>Use o mouse ou o teclado para navegar e preencher as células.</p>
         </div>
         <div class="resultado" id="resultado">
             <h1>Crossword Game</h1> 
         <div id="crossword"></div> 
+
+
+        
         
         </div>
 
+        <div class="questao">
+            <h4>1.Unidade responsável por executar instruções de programas, coordenando e processando dados no computador.</h4><h4>2. Unidade da CPU responsável por realizar cálculos matemáticos e operações lógicas.</h4>
+            <h4>3.Responsáveis por armazenar dados temporários, instruções ou endereços usados nos processamentos.</h4><h4>4.Tipo de memória temporária usada na execução de programas.</h4>
+            <h4>5.Tipo de memória permanente com instruções fixas (como a BIOS).</h4><h4>6.Tipo de memória programável e apagável por luz UV.</h4>
+            <h4>7.Tipo de memória não volátil, regravável, usada em SSDs e pendrives</h4><h4>8.Tipo de memória de armazenamento permanente, como HDs e SSDs.</h4>
+            <h4>9.Tecnologia que permite que periféricos troquem dados com a memória sem usar a CPU, liberando processamento.</h4><h4>10.Sinal que ativa um chip específico em um sistema. Permite selecionar qual componente deve responder à operação.</h4>
+            <h4>11.Componente responsável por transportar os endereços da CPU para a memória RAM ou outros dispositivos</h4><h4>12.Componente responsável por enviar e receber dados entre CPU e componentes.</h4>
+            <h4>13.Modelo de processador desenvolvido pela Intel qu teve sua primeira versão lançada em setembro de 2009.</h4><h4>14.Modelo de processador desenvolvido pela Intel qu teve sua primeira versão lançada em novembro de 2008.</h4>
+            <h4>15.Processador ...: Possui dois núcleos de processamento</h4>
+            <h4>16.Processador ...: Possui quatro núcleos de processamento</h4>
+           </div>
     
 </main>
 </body>
     <script>
 
-        function comecar(){
-
-            const crosswordData = [ 
-    { word: "APPLE", row: 0, col: 0, direction: "across" }, 
-    { word: "PINE", row: 1, col: 0, direction: "down" }, 
-]; 
  
-const crosswordContainer = document.getElementById('crossword'); 
- 
-crosswordData.forEach(entry => { 
-    const { word, row, col, direction } = entry; 
- 
-    for (let i = 0; i < word.length; i++) { 
-        const cell = document.createElement('div'); 
-        cell.classList.add('cell'); 
-         
-        const input = document.createElement('input'); 
-        input.maxLength = 1; 
- 
-        // Set the position of the input based on direction 
-        if (direction === "across") { 
-            input.dataset.row = row; 
-            input.dataset.col = col + i; 
-        } else { 
-            input.dataset.row = row + i; 
-            input.dataset.col = col; 
-        } 
-         
-        cell.appendChild(input); 
-        crosswordContainer.appendChild(cell); 
-    } 
-}); 
-
-        }
 
     </script>
