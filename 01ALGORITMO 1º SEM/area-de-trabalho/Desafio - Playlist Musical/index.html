@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlist Musical</title>
+    <style>
+
+        main{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 75%;
+            min-height: 75vh;
+            background-color: rgb(59, 59, 59);
+            color:rgb(1, 177, 10)
+        }
+
+        .conteudo{
+            display:flex;
+            flex-direction: center;
+            align-items: center;
+            width: 90%;
+            height: 100%;
+        }
+        .botoes{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+    </style>
+</head>
+<body style="display: flex; flex-direction: column; align-items: center;">
+    <main>
+        <h1> Playlist Musical </h1>
+
+            <div class="conteudo">  
+                <div class="ipt" id="div_ipt">
+                    <input id="ipt_titulo"></input>
+                    <input id="ipt_banda"></input>
+                    <input id="ipt_duracao"></input>
+                    <input id="ipt_anoLancamento"></input>
+                    <input id="ipt_avaliacoes"></input>
+                    <input id="ipt_integrantes"></input>
+                </div>
+
+                <div class="botoes">
+                    <button onclick="adicionarMusica()">ADICIONAR</button>
+                    <button onclick="listarMusicas()">LISTAR</button>
+                    <button onclick="removerMusica()">REMOVER</button>
+                    <button onclick="atualizarAnoLancamento()">ATUALIZAR LANÇ.</button>
+                    <button onclick="mediaAvaliacoes()">EXIBIR AV. MÉDIA</button>
+                    <button onclick="buscarBandaPorIntegrante()">BUSCAR INTEGRANTE</button>
+                </div>
+
+                <div class="lista" id="div_lista"></div> 
+
+            </div>
+    
+    </main>
+
+<script>
+const musicas = {}
+    async function pegarDados(){
+    
+        let titulo = ipt_titulo.value
+        let banda = ipt_banda.value
+        let duracao = ipt_duracao.value
+        let anoLanc = ipt_anoLancamento.value
+        let avaliacoes = (ipt_avaliacoes.value).split(',')
+        let listaIntegrantes = (ipt_integrantes.value).split(',')
+        let integrantes = []
+        listaIntegrantes.forEach(integrante =>{
+            integrantes.push(integrante.trim())
+        })
+
+        return {
+            titulo, banda, duracao, anoLanc, avaliacoes, integrantes
+        }
+
+
+
+
+
+
+
+
+
+
+    }
+
+    function exibirLista(){
+        let texto = ''
+        musicas.forEach(musica => {
+            texto += ``    
+        })
+
+        
+
+    }
+    
+    async function adicionarMusica(){
+       await pegarDados()
+
+        musicas[musicas.length+1] = {
+            "titulo": titulo,
+            "banda": banda,
+            "duracao": duracao,
+            "anoLanc": anoLanc,
+            "avaliacoes": avaliacoes,
+            "integrantes": integrantes
+        }
+
+    }
+
+    async function listarMusicas(){
+
+        musicas.forEach(musica => {
+            
+        });
+        
+        
+
+    }
+    
+
+
+    
+</script>
+
+</body>
+</html>
